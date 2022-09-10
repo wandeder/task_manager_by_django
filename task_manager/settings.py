@@ -11,13 +11,13 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-from doenv import load_doenv
+from dotenv import load_dotenv
 import os
 
 
 # Load envroinments variable
 env_path = os.path.join('.', '.env')
-load_doenv(dotenv_path=env_path)
+load_dotenv(dotenv_path=env_path)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,7 +32,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['webserver', ]
+ALLOWED_HOSTS = ['webserver', '127.0.0.1']
 
 
 # Application definition
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'task_manager',
 ]
 
 MIDDLEWARE = [
