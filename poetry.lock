@@ -43,7 +43,7 @@ pyflakes = ">=2.5.0,<2.6.0"
 name = "gunicorn"
 version = "20.1.0"
 description = "WSGI HTTP Server for UNIX"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -95,7 +95,7 @@ cli = ["click (>=5.0)"]
 name = "setuptools"
 version = "65.3.0"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -123,7 +123,7 @@ python-versions = ">=2"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "927c94db256af7565852daaa43a03ff979f2c3bd716fdc2467c4165a7dca5c71"
+content-hash = "122d6f9731605f09ba0e7b05814442a721d4db765276f06f015160eac151ec3a"
 
 [metadata.files]
 asgiref = [
