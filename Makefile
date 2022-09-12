@@ -9,3 +9,6 @@ coverage: #start pytest code coverage
 
 coverage-xml: #start pytest code coverage and write report is xml-file
 	poetry run pytest --cov task_manager --cov-report xml
+
+start: #starting dev server
+	poetry run python3 manage.py runserver
