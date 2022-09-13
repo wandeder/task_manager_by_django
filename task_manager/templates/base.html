@@ -1,33 +1,40 @@
+{# Load the tag library #}
+{% load bootstrap4 %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{# Load translation #}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<!-- Current language: {{ LANGUAGE_CODE }} -->
+    {% translate "Sing in" as sing_in %}
+    {% translate "Users" as users %}
+    {% translate "Registration" as registr %}
+    {% translate "Task manager" as brand %}
+
 <!doctype html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
-    <title>Task Manager v.0.0.1</title>
-
-    {# Load the tag library #}
-    {% load bootstrap4 %}
-    {# Load CSS and JavaScript #}
-    {% bootstrap_css %}
-    {% bootstrap_javascript jquery='full' %}
-
+    <title>{{ brand }} v.0.0.1</title>
+  </head>
     <!-- Custom styles for this template -->
     <link href="navbar-top.css" rel="stylesheet">
-  </head>
 
   <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
      <div class="container-fluid">
-         <a class="navbar-brand" href="#">Task manager:</a>
+         <a class="navbar-brand" href="#">{{ brand }}</a>
      <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Sing in</a>
+            <a class="nav-link active" aria-current="page" href="#">{{ sing_in }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Registration</a>
+            <a class="nav-link active" aria-current="page" href="#">{{ registr }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Users</a>
+            <a class="nav-link active" aria-current="page" href="#">{{ users }}</a>
         </li>
       </ul>
     </div>
