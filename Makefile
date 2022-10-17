@@ -12,3 +12,10 @@ coverage-xml: #start pytest code coverage and write report is xml-file
 
 start: #starting dev server
 	poetry run python3 manage.py runserver
+
+migrate: #make and add migrations
+	poetry run python3 manage.py makemigrations task_manager
+	poetry run python3 manage.py migrate
+
+shell: #start shell
+	poetry run python3 manage.py shell_plus
