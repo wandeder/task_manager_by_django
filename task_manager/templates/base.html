@@ -9,7 +9,7 @@
 <!-- Current language: {{ LANGUAGE_CODE }} -->
     {% translate "Sing in" as sing_in %}
     {% translate "Users" as users %}
-    {% translate "Registration" as registr %}
+    {% translate "Registration" as register %}
     {% translate "Task manager" as brand %}
 
 <!doctype html>
@@ -24,21 +24,25 @@
   <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
      <div class="container-fluid">
-         <a class="navbar-brand" href="#">{{ brand }}</a>
+         <a class="navbar-brand" href="/">{{ brand }}</a>
      <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">{{ sing_in }}</a>
+            <a class="nav-link active" aria-current="page" href="/login">{{ sing_in }}</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">{{ registr }}</a>
+            <a class="nav-link active" aria-current="page" href="/users/create">{{ register }}</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">{{ users }}</a>
+            <a class="nav-link active" aria-current="page" href="/users">{{ users }}</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+    <div id="content" style="text-align: center">
+        {% block content %}
+        {% endblock %}
+    </div>
   </body>
 </html>
