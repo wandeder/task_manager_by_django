@@ -15,6 +15,8 @@ from dotenv import load_dotenv
 import os
 
 
+AUTH_USER_MODEL = 'task_manager.User'
+
 # Load envroinments variable
 env_path = os.path.join('.', '.env')
 load_dotenv(dotenv_path=env_path)
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'task_manager',
     'bootstrap4',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -195,3 +198,5 @@ BOOTSTRAP4 = {
     # Class to indicate success, meaning the field has valid input (better to set this in your Django form)
     'success_css_class': 'is-valid',
 }
+
+LOGIN_REDIRECT_URL = 'home'
