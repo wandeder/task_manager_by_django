@@ -18,9 +18,6 @@
     <meta charset="utf-8">
     <title>{{ brand }} v.0.0.1</title>
   </head>
-    <!-- Custom styles for this template -->
-    <link href="navbar-top.css" rel="stylesheet">
-
   <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
      <div class="container-fluid">
@@ -40,9 +37,7 @@
     </div>
   </div>
 </nav>
-    <div id="content" style="text-align: center">
-        {% block content %}
-        {% endblock %}
-    </div>
+    {% block content %}
+    {% endblock %}
   </body>
 </html>
