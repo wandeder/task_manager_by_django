@@ -3,13 +3,13 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
 from django.contrib.auth import get_user_model
 from django.urls import reverse_lazy
-# from task_manager.models import User
 
 
 User = get_user_model()
 
 class HomeView(TemplateView):
-    template_name = 'base.html'
+    model = User
+    template_name = 'home.html'
 
 
 class UserCreateView(CreateView):
@@ -40,10 +40,6 @@ class UserDeleteView(DeleteView):
     model = User
     template_name = 'user_delete_form.html'
     success_url = reverse_lazy('users_list')
-
-
-#class UserLoginView(LoginView):
-#    template_name = 'login.html'
 
 
 class UsersList(ListView):

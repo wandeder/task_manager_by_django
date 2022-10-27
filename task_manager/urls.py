@@ -23,8 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name='home'),
     path('users/', UsersList.as_view(), name='users_list'),
-    path('login/', auth_views.LoginView.as_view(template_name='login.html')),
-    # path('login/', LoginView.as_view(), name='login'),
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    #path('logout/' auth_views.
     path('users/create/', UserCreateView.as_view(), name='user_create'),
     path('users/create/done', UserCreateDoneView.as_view(), name='user_create_done'),
     path('users/<int:pk>/update/', UserUpdateView.as_view(), name='user_update'),
