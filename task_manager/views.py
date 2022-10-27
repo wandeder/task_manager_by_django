@@ -3,6 +3,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
 from django.contrib.auth import get_user_model
 from django.urls import reverse_lazy
+from task_manager.forms import UserCreationForm
 
 
 User = get_user_model()
@@ -13,9 +14,8 @@ class HomeView(TemplateView):
 
 
 class UserCreateView(CreateView):
-    model = User
+    form_class = UserCreationForm
     template_name = 'user_create_form.html'
-    fields = ['first_name', 'last_name', 'username', 'email', 'password']
     success_url = reverse_lazy('user_create_done')
 
 
@@ -27,7 +27,7 @@ class UserCreateDoneView(TemplateView):
 class UserUpdateView(UpdateView):
     model = User
     template_name = 'user_update_form.html'
-    fields = ['first_name', 'last_name', 'email', 'password']
+   # fields = ['first_name', 'last_name', 'email', 'password']
     success_url = reverse_lazy('users_list')
 
 
