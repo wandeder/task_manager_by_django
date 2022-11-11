@@ -4,7 +4,10 @@
 {% block content %}
     <h2>Delete user</h2>
     <form action="" method="post">{% csrf_token %}
-        <p>Are you sure you want to delete user "{{ user.first_name }} {{ user.last_name }}"?</p>
-      <input type="submit" value="Confirm" />
+      <p>Are you sure you want to your account?</p>
+      <input type="submit" value="Yes, I'm sure"/>
+    </form>
+    <form action="/users">
+      <input type="submit" value="Not, I'm not sure"/>
     </form>
 {% endblock content %}
