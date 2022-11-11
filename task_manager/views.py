@@ -27,8 +27,8 @@ class UserCreateDoneView(TemplateView):
 class UserUpdateView(UpdateView):
     model = User
     template_name = 'user_update_form.html'
-   # fields = ['first_name', 'last_name', 'email', 'password']
-    success_url = reverse_lazy('users_list')
+    fields = ['username', 'first_name', 'last_name', 'email']
+    success_url = reverse_lazy('user_update_done')
 
 
 class UserUpdateDoneView(TemplateView):
@@ -39,10 +39,15 @@ class UserUpdateDoneView(TemplateView):
 class UserDeleteView(DeleteView):
     model = User
     template_name = 'user_delete_form.html'
-    success_url = reverse_lazy('users_list')
+    success_url = reverse_lazy('user_delete_done')
 
 
 class UsersList(ListView):
     model = User
     context_object_name = 'users_list'
     template_name = 'users_list.html'
+
+
+class UserDeleteDoneView(TemplateView):
+    model = User
+    template_name = 'user_delete_done.html'
