@@ -19,3 +19,6 @@ migrate: #make and add migrations
 
 shell: #start shell
 	poetry run python3 manage.py shell_plus
+
+export: #make export dependens from poetry on Heroku
+	poetry export -f requirements.txt --output requirements.txt
