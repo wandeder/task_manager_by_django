@@ -8,6 +8,7 @@ from task_manager.forms import UserCreationForm
 
 User = get_user_model()
 
+
 class HomeView(TemplateView):
     model = User
     template_name = 'home.html'
