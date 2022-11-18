@@ -4,6 +4,9 @@ asgiref==3.5.2 ; python_full_version == "3.10.7" \
 beautifulsoup4==4.11.1 ; python_full_version == "3.10.7" \
     --hash=sha256:58d5c3d29f5a36ffeb94f02f0d786cd53014cf9b3b3951d42e0080d8a9498d30 \
     --hash=sha256:ad9aa55b65ef2808eb405f46cf74df7fcb7044d5cbc26487f96eb2ef2e436693
+dj-database-url==1.0.0 ; python_full_version == "3.10.7" \
+    --hash=sha256:ccf3e8718f75ddd147a1e212fca88eecdaa721759ee48e38b485481c77bca3dc \
+    --hash=sha256:cd354a3b7a9136d78d64c17b2aec369e2ae5616fbca6bfbe435ef15bb372ce39
 django-bootstrap4==22.2 ; python_full_version == "3.10.7" \
     --hash=sha256:57bcbce53530ffd57a1c8bda74c8f3b56c859e085fb1f52a0e3e3a4f982f0960 \
     --hash=sha256:ad00ff90e6bd002155516b32047c40df15f533fac49da66d8882995adcb13552
