@@ -2,7 +2,7 @@ lint: #linter for code
 	poetry run flake8 --ignore=F401,E501 task_manager
 
 test: #start pytest
-	poetry run pytest -vv
+	poetry run python3 manage.py test
 
 coverage: #start pytest code coverage
 	poetry run pytest --cov task_manage
