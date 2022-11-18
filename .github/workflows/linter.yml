@@ -9,7 +9,7 @@ jobs:
       - name: install dependecies
         run: |
           pip install poetry
-          poetry install
+          poetry --no-warn-script-location install
       - name: run linter
         run: |
           make lint
