@@ -1,2 +1,7 @@
 .env
 db.sqlite3
+task_manager/__pycache__/
+task_manager/migrations/
+*.pyc
+.DS_store
+*.swp
