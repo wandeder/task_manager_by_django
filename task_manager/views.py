@@ -4,8 +4,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
 from django.contrib.auth import get_user_model
 from django.urls import reverse_lazy
-from task_manager.forms import UserCreationForm, StatusCreationForm
-from task_manager.models import Status
+from task_manager.forms import UserCreationForm, StatusCreationForm, TaskCreationForm
+from task_manager.models import Status, Task
 
 User = get_user_model()
 
@@ -25,6 +25,12 @@ class StatusesList(ListView):
     model = Status
     context_object_name = 'statuses_list'
     template_name = 'statuses_list.html'
+
+
+class TasksList(ListView):
+    model = Task
+    context_object_name = 'tasks_list'
+    template_name = 'tasks_list.html'
 
 
 class UserCreateView(SuccessMessageMixin, CreateView):
@@ -69,3 +75,25 @@ class StatusDeleteView(SuccessMessageMixin, DeleteView):
     template_name = 'status_delete_form.html'
     success_url = reverse_lazy('statuses_list')
     success_message = 'Status was deleted successfully.'
+
+
+class TaskCreateView(SuccessMessageMixin, CreateView):
+    form_class = TaskCreationForm
+    template_name = 'task_create_form.html'
+    success_url = reverse_lazy('tasks_list')
+    success_message = 'Task \"%(name)s\" was created successfully.'
+
+
+class TaskUpdateView(SuccessMessageMixin, UpdateView):
+    model = Task
+    template_name = 'task_update_form.html'
+    fields = ['name', ]
+    success_url = reverse_lazy('tasks_list')
+    success_message = 'Task \"%(name)s\" was updated successfully.'
+
+
+class TaskDeleteView(SuccessMessageMixin, DeleteView):
+    model = Task
+    template_name = 'task_delete_form.html'
+    success_url = reverse_lazy('tasks_list')
+    success_message = 'Task was deleted successfully.'

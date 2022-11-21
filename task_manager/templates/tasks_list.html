@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3 class="my-4">Tasks list:</h3>
+<h5><a href="/tasks/create/">Create task</a></h5>
+<p></p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Author</th>
+      <th>Executor</th>
+      <th>Date create</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for task in tasks_list %}
+        <tr>
+            <td>{{ task.id }}</td>
+            <td>{{ task.name }}</td>
+            <td>{{ task.creator }}</td>
+            <td>{{ task.executor }}</td>
+            <td>{{ task.creted_at }}</td>
+            {% if user.is_authenticated %}
+                <td>
+                    <a href="/tasks/{{ task.id }}/update/">Update</a>
+                    <br>
+                    <a href="/tasks/{{ task.id }}/delete/">Delete</a>
+                </td>
+            {% else %}
+                <td></td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+{% endblock %}

@@ -1,5 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm
-from task_manager.models import User, Status
+from task_manager.models import User, Status, Task
 from django.forms import ModelForm
 
 
@@ -12,3 +12,9 @@ class StatusCreationForm(ModelForm):
     class Meta:
         model = Status
         fields = ['name']
+
+
+class TaskCreationForm(ModelForm):
+    class Meta:
+        model = Task
+        fields = ['name', 'description', 'executor', 'status']
