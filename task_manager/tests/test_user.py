@@ -42,4 +42,4 @@ class CRUD_User_Test(TestCase):
         self.client.login(username='ivan_ivanov', password='qwerty')
         response = self.client.post(reverse('user_delete', kwargs={'pk': self.user.pk}))
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse('user_delete_done'))
+        self.assertRedirects(response, reverse('users_list'))
