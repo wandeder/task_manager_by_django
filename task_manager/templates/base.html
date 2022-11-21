@@ -12,6 +12,7 @@
     {% translate "Users" as users %}
     {% translate "Sign up" as sign_up %}
     {% translate "Task manager" as brand %}
+    {% translate "Statuses" as statuses %}
 
 <!doctype html>
 <html>
@@ -28,6 +29,11 @@
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/users">{{ users }}</a>
         </li>
+        {% if user.is_authenticated %}
+            <li class="nav-item mr-auto">
+                <a class="nav-link active" aria-current="page" href="/statuses">{{ statuses }}</a>
+            </li>
+        {% endif %}
       </ul>
         {% if user.is_authenticated %}
             <ul class="navbar-nav", style="text-align: right;">

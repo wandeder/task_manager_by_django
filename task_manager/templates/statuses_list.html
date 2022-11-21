@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3 class="my-4">Statuses list:</h3>
+<h5><a href="/statuses/create/">Create status</a></h5>
+<p></p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Date create</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for status in statuses_list %}
+        <tr>
+            <td>{{ status.id }}</td>
+            <td>{{ status.name }}</td>
+            <td>{{ status.create_at }}</td>
+            {% if user.is_authenticated %}
+                <td>
+                    <a href="/statuses/{{ status.id }}/update/">Update</a>
+                    <br>
+                    <a href="/statuses/{{ status.id }}/delete/">Delete</a>
+                </td>
+            {% else %}
+                <td></td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+{% endblock %}

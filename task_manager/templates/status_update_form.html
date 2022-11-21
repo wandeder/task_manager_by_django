@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h4>Update the status:</h4>
+<p></p>
+<form action="." method="post">
+    {% csrf_token %}
+    {{ form.as_div }}
+    <p></p>
+    <input type="submit" value="Update status">
+</form>
+{% endblock %}

@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from task_manager.views import HomeView, UserCreateView, UsersList, UserCreateDoneView, UserUpdateView, UserUpdateDoneView, UserDeleteView, UserDeleteDoneView
+from task_manager.views import HomeView, UserCreateView, UsersList, UserCreateDoneView, UserUpdateView, UserUpdateDoneView, UserDeleteView, UserDeleteDoneView, StatusesList, StatusCreateView, StatusUpdateView, StatusDeleteView
 
 
 urlpatterns = [
@@ -31,4 +31,8 @@ urlpatterns = [
     path('users/int:pk>/update/done', UserUpdateDoneView.as_view(), name='user_update_done'),
     path('users/<int:pk>/delete/', UserDeleteView.as_view(), name='user_delete'),
     path('users/int:pk>/delete/done', UserDeleteDoneView.as_view(), name='user_delete_done'),
+    path('statuses', StatusesList.as_view(), name='statuses_list'),
+    path('statuses/create/', StatusCreateView.as_view(), name='status_create'),
+    path('statuses/<int:pk>/update/', StatusUpdateView.as_view(), name='status_update'),
+    path('statuses/<int:pk>/delete/', StatusDeleteView.as_view(), name='statuses_delete'),
 ]
