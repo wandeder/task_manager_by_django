@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from task_manager.views import HomeView, UserCreateView, UsersList, UserCreateDoneView, UserUpdateView, UserUpdateDoneView, UserDeleteView, UserDeleteDoneView, StatusesList, StatusCreateView, StatusUpdateView, StatusDeleteView
+from task_manager.views import HomeView, UsersList, StatusesList, UserCreateView,  UserUpdateView, UserDeleteView, StatusCreateView, StatusUpdateView, StatusDeleteView
 
 
 urlpatterns = [
@@ -26,11 +26,8 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('users/create/', UserCreateView.as_view(), name='user_create'),
-    path('users/create/done', UserCreateDoneView.as_view(), name='user_create_done'),
     path('users/<int:pk>/update/', UserUpdateView.as_view(), name='user_update'),
-    path('users/int:pk>/update/done', UserUpdateDoneView.as_view(), name='user_update_done'),
     path('users/<int:pk>/delete/', UserDeleteView.as_view(), name='user_delete'),
-    path('users/int:pk>/delete/done', UserDeleteDoneView.as_view(), name='user_delete_done'),
     path('statuses', StatusesList.as_view(), name='statuses_list'),
     path('statuses/create/', StatusCreateView.as_view(), name='status_create'),
     path('statuses/<int:pk>/update/', StatusUpdateView.as_view(), name='status_update'),
