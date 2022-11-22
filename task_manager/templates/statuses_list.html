@@ -20,7 +20,7 @@
         <tr>
             <td>{{ status.id }}</td>
             <td>{{ status.name }}</td>
-            <td>{{ status.create_at }}</td>
+            <td>{{ status.created_at }}</td>
             {% if user.is_authenticated %}
                 <td>
                     <a href="/statuses/{{ status.id }}/update/">Update</a>

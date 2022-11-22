@@ -7,6 +7,6 @@
 <form action="." method="post">
     {% csrf_token %}
     {{ form.as_table }}
-    <input type="submit" value="Create account">
+    <input class="btn btn-primary" type="submit" value="Create account">
 </form>
 {% endblock %}

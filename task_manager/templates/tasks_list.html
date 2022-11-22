@@ -10,6 +10,7 @@
     <tr>
       <th>ID</th>
       <th>Name</th>
+      <th>Status</th>
       <th>Author</th>
       <th>Executor</th>
       <th>Date create</th>
@@ -22,9 +23,10 @@
         <tr>
             <td>{{ task.id }}</td>
             <td>{{ task.name }}</td>
+            <td>{{ task.status }}</td>
             <td>{{ task.creator }}</td>
             <td>{{ task.executor }}</td>
-            <td>{{ task.creted_at }}</td>
+            <td>{{ task.created_at }}</td>
             {% if user.is_authenticated %}
                 <td>
                     <a href="/tasks/{{ task.id }}/update/">Update</a>
