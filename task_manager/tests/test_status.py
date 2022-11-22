@@ -6,7 +6,6 @@ from django.urls import reverse, reverse_lazy
 class CRUD_Status_Test(TestCase):
 
     def setUp(self):
-        # Every test needs a user.
         Status.objects.create(name='test_status')
         self.status = Status.objects.get(id=1)
 
