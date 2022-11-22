@@ -1,7 +1,7 @@
 from django.views.generic.base import TemplateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import ListView
+from django.views.generic import DetailView, ListView
 from django.contrib.auth import get_user_model
 from django.urls import reverse_lazy
 from task_manager.forms import UserCreationForm, StatusCreationForm, TaskCreationForm
@@ -29,6 +29,12 @@ class StatusesList(ListView):
     model = Status
     context_object_name = 'statuses_list'
     template_name = 'statuses_list.html'
+
+
+class TaskView(DetailView):
+    model = Task
+    context_object_name = 'task'
+    template_name = 'task.html'
 
 
 class TasksList(ListView):

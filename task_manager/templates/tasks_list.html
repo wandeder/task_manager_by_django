@@ -22,7 +22,7 @@
     {% for task in tasks_list %}
         <tr>
             <td>{{ task.id }}</td>
-            <td>{{ task.name }}</td>
+            <td><a href="tasks/{{ task.id }}/">{{ task.name }}</a></td>
             <td>{{ task.status }}</td>
             <td>{{ task.creator }}</td>
             <td>{{ task.executor }}</td>
@@ -31,7 +31,9 @@
                 <td>
                     <a href="/tasks/{{ task.id }}/update/">Update</a>
                     <br>
-                    <a href="/tasks/{{ task.id }}/delete/">Delete</a>
+                    {% if user.id == task.creator_id %}
+                        <a href="/tasks/{{ task.id }}/delete/">Delete</a>
+                    {% endif %}
                 </td>
             {% else %}
                 <td></td>

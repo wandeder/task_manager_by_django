@@ -1,0 +1,52 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container wrapper flex-grow-1">
+    <h3 class="my-4">Task:</h3>
+    <div class="card">
+        <div class="card-header bg-secondary text-white">
+            <h2>{{ task.name }}</h2>
+        </div>
+        <div class="card-body bg-light">
+            <p>{{ task.description }}</p>
+            <hr>
+            <div class="container">
+                <div class="row p-1">
+                    <div class="col">Author</div>
+                    <div class="col">{{ task.creator }}</div>
+                </div>
+                 <div class="row p-1">
+                    <div class="col">Executor</div>
+                    <div class="col">{{ task.executor }}</div>
+                 </div>
+                 <div class="row p-1">
+                    <div class="col">Status</div>
+                    <div class="col">{{ task.status }}</div>
+                 </div>
+                <div class="row p-1">
+                    <div class="col">Created date</div>
+                    <div class="col">{{ task.created_at }}</div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">
+                        <p>Marks:<p>
+                        <ul>
+                            <li>{{ task.marks }}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row p-1">
+                    <div class="col">
+                        <a href="/tasks/{{ task.id }}/update/">Update</a>
+                        <br>
+                        {% if user.id == task.creator_id %}
+                            <a href="/tasks/{{ task.id }}/delete/">Delete</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
