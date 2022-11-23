@@ -57,7 +57,6 @@ class LabelsList(ListView):
 class UserCreateView(SuccessMessageMixin, CreateView):
     form_class = UserCreationForm
     template_name = 'create_form.html'
-    extra_context = {'title': 'user'}
     success_url = reverse_lazy('login')
     success_message = '\"%(username)s\" your account has been successfully created.'
 

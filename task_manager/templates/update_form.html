@@ -3,11 +3,11 @@
 
 {% block content %}
 <h4 class='my-4'>Update the {{ title }}:</h4>
-<p></p>
+<br>
 <form action="." method="post">
     {% csrf_token %}
     {{ form.as_div }}
-    <p></p>
+    <br>
     <input class="btn btn-primary" type="submit" value="Update {{ title }}">
 </form>
 {% endblock %}

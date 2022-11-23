@@ -4,6 +4,7 @@ from django.forms import ModelForm, Textarea, ModelChoiceField
 
 
 class UserCreationForm(UserCreationForm):
+    title = 'user'
     class Meta(UserCreationForm.Meta):
         model = User
 
