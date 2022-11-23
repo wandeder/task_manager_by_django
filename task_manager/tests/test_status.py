@@ -10,7 +10,6 @@ class CRUD_Status_Test(TestCase):
         self.status = Status.objects.get(id=1)
 
     def test_create_status(self):
-        # Issue a POST request, create new user.
         response = Client().post(reverse_lazy('status_create'), {'name': 'something'}, follow=True)
         # Check that the response is 200 OK.
         self.assertEqual(response.status_code, 200)

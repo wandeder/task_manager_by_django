@@ -1,16 +1,22 @@
 from django.test import TestCase, Client
-from task_manager.models import User, Task, Status
+from task_manager.models import User, Task, Status, Label
 from django.urls import reverse, reverse_lazy
 
 
-class CRUD_Status_Test(TestCase):
+class CRUD_Tasks_Test(TestCase):
 
     def setUp(self):
         User.objects.create_user(username='ivan_ivanov', password='qwerty')
         self.user = User.objects.get(id=1)
         Status.objects.create(name='status')
         self.status = Status.objects.get(id=1)
-        Task.objects.create(name='task', description='something', creator=self.user, executor=self.user, status=self.status)
+        Task.objects.create(
+                            name='task',
+                            description='something',
+                            creator=self.user,
+                            executor=self.user,
+                            status=self.status,
+                        )
         self.task = Task.objects.get(id=1)
 
     def test_read_task(self):
@@ -24,7 +30,7 @@ class CRUD_Status_Test(TestCase):
         # Check that redirect url is rigth.
         self.assertRedirects(response, reverse_lazy('tasks_list'))
 
-    def test_update_status(self):
+    def test_update_task(self):
         response = self.client.post(
             reverse('task_update', kwargs={'pk': self.task.pk}),
             {
@@ -32,14 +38,14 @@ class CRUD_Status_Test(TestCase):
                 'description': 'pass',
                 'creator': 2,
                 'executor': 2,
-                'status': 2
+                'status': 2,
             },
             follow=True
         )
 
         self.assertEqual(response.status_code, 200)
 
-    def test_delete_status(self):
+    def test_delete_task(self):
         response = self.client.post(reverse('task_delete', kwargs={'pk': self.task.pk}))
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('tasks_list'))

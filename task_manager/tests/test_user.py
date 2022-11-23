@@ -3,7 +3,7 @@ from task_manager.models import User
 from django.urls import reverse, reverse_lazy
 
 
-class CRUD_User_Test(TestCase):
+class CRUD_Users_Test(TestCase):
 
     def setUp(self):
         # Every test needs a user.

@@ -17,7 +17,6 @@ class Status(models.Model):
 
 class Label(models.Model):
     name = models.CharField(max_length=100)
-    creator = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -31,7 +30,13 @@ class Task(models.Model):
     creator = models.ForeignKey(get_user_model(), on_delete=models.PROTECT, related_name='creator')
     executor = models.ForeignKey(User, on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True)
-    labels = models.ManyToManyField(Label)
+    labels = models.ManyToManyField(Label, through='Labels_of_Task')
 
     def __str__(self):
         return self.name
+
+
+class Labels_of_Task(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
+    label = models.ForeignKey(Label, on_delete=models.PROTECT)
+
