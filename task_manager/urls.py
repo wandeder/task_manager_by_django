@@ -16,15 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from task_manager.views import HomeView, TaskView, UsersList, StatusesList, TasksList, UserCreateView, UserUpdateView, UserDeleteView, StatusCreateView, StatusUpdateView, StatusDeleteView, TaskCreateView, TaskUpdateView, TaskDeleteView
+from task_manager.views import *
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name='home'),
-    path('users/', UsersList.as_view(), name='users_list'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('users/', UsersList.as_view(), name='users_list'),
     path('users/create/', UserCreateView.as_view(), name='user_create'),
     path('users/<int:pk>/update/', UserUpdateView.as_view(), name='user_update'),
     path('users/<int:pk>/delete/', UserDeleteView.as_view(), name='user_delete'),
@@ -37,4 +37,8 @@ urlpatterns = [
     path('tasks/create/', TaskCreateView.as_view(), name='task_create'),
     path('tasks/<int:pk>/update/', TaskUpdateView.as_view(), name='task_update'),
     path('tasks/<int:pk>/delete/', TaskDeleteView.as_view(), name='task_delete'),
+    path('labels/', LabelsList.as_view(), name='labels_list'),
+    path('labels/create/', LabelCreateView.as_view(), name='labels_create'),
+    path('labels/<int:pk>/update/', LabelUpdateView.as_view(), name='labels_update'),
+    path('labels/<int:pk>/delete/', LabelDeleteView.as_view(), name='labels_delete'),
 ]

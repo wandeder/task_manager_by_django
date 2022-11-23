@@ -2,12 +2,12 @@
 
 
 {% block content %}
-<h4>Update the status:</h4>
+<h4 class='my-4'>Update the {{ title }}:</h4>
 <p></p>
 <form action="." method="post">
     {% csrf_token %}
     {{ form.as_div }}
     <p></p>
-    <input type="submit" value="Update status">
+    <input type="submit" value="Update {{ title }}">
 </form>
 {% endblock %}

@@ -15,6 +15,15 @@ class Status(models.Model):
         return self.name
 
 
+class Label(models.Model):
+    name = models.CharField(max_length=100)
+    creator = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Task(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=700)
@@ -22,3 +31,4 @@ class Task(models.Model):
     creator = models.ForeignKey(get_user_model(), on_delete=models.PROTECT, related_name='creator')
     executor = models.ForeignKey(User, on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True)
+    labels = models.ManyToManyField(Label)

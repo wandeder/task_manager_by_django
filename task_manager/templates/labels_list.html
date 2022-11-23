@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3 class="my-4">Labels list:</h3>
+<h5><a href="/labels/create/">Create label</a></h5>
+<p></p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Date create</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for label in labels_list %}
+        <tr>
+            <td>{{ label.id }}</td>
+            <td>{{ label.name }}</td>
+            <td>{{ label.created_at }}</td>
+            {% if user.is_authenticated %}
+                <td>
+                    <a href="/labels/{{ label.id }}/update/">Update</a>
+                    <br>
+                    <a href="/labels/{{ label.id }}/delete/">Delete</a>
+                </td>
+            {% else %}
+                <td></td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+{% endblock %}

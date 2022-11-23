@@ -14,6 +14,7 @@
     {% translate "Task manager" as brand %}
     {% translate "Statuses" as statuses %}
     {% translate "Tasks" as tasks %}
+    {% translate "Labels" as labels %}
 
 <!doctype html>
 <html>
@@ -36,6 +37,9 @@
             </li>
             <li class="nav-item mr-auto">
                 <a class="nav-link active" aria-current="page" href="/tasks">{{ tasks }}</a>
+            </li>
+            <li class="nav-item mr-auto">
+                <a class="nav-link active" aria-current="page" href="/labels">{{ labels }}</a>
             </li>
         {% endif %}
       </ul>

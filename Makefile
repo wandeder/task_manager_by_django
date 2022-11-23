@@ -1,5 +1,5 @@
 lint: #linter for code
-	flake8 --ignore=F401,E501 task_manager
+	flake8 --ignore=F401,F403,F405,E501 task_manager
 
 test: #start pytest
 	poetry run python3 manage.py test
