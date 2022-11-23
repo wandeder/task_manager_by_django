@@ -7,8 +7,6 @@
 {% if user.is_authenticated %}
   <p>Hello, {{ user.username|default:'dear guest' }}!</p>
 {% else %}
-  <p>You are not logged in!</p>
-  <p><a href="{% url 'login' %}">Log in</a></p>
-  <p><a href="{% url 'user_create' %}">Sign up</a></p>
+  <p>You are not logged in yet!</p>
 {% endif %}
 {% endblock %}
