@@ -32,3 +32,6 @@ class Task(models.Model):
     executor = models.ForeignKey(User, on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True)
     labels = models.ManyToManyField(Label)
+
+    def __str__(self):
+        return self.name

@@ -10,6 +10,7 @@
     <tr>
       <th>ID</th>
       <th>Name</th>
+      <th>Tasks</th>
       <th>Date create</th>
       <th></th>
     </tr>
@@ -20,6 +21,7 @@
         <tr>
             <td>{{ label.id }}</td>
             <td>{{ label.name }}</td>
+            <td>{{ label.task_set.name }}</td>
             <td>{{ label.created_at }}</td>
             {% if user.is_authenticated %}
                 <td>

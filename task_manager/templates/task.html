@@ -32,7 +32,9 @@
                     <div class="col">
                         <p>Labels:<p>
                         <ul>
-                            <li>{{ task.labels }}</li>
+                            {% for label in task.labels.all %}
+                                <li>{{ label.name }}</li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
