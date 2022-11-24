@@ -133,6 +133,8 @@ class TaskCreateView(SuccessMessageMixin, CreateView):
             task = form.save(commit=False)
             task.creator = request.user
             task.save()
+            form.save_m2m()
+            print(request.POST)
         return HttpResponseRedirect(self.success_url)
 
 
