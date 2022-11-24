@@ -20,7 +20,7 @@ class StatusCreationForm(ModelForm):
 class TaskCreationForm(ModelForm):
     title = 'task'
     error_css_class = 'error'
-    required_css_class = 'form-group'
+    # required_css_class = 'form-group'
 
     class Meta:
         model = Task
