@@ -118,6 +118,7 @@ class StatusDeleteView(SuccessMessageMixin, DeleteView):
         except models.ProtectedError:
             get_error_delete_message(self.request, self.extra_context)
             return HttpResponseRedirect(success_url)
+        messages.success(self.request, self.success_message)
         return HttpResponseRedirect(success_url)
 
 
@@ -125,7 +126,7 @@ class TaskCreateView(SuccessMessageMixin, CreateView):
     form_class = TaskCreationForm
     template_name = 'create_form.html'
     success_url = reverse_lazy('tasks_list')
-    success_message = 'Task \"%(name)s\" was created successfully.'
+    success_message = 'Task was created successfully.'
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
@@ -134,7 +135,7 @@ class TaskCreateView(SuccessMessageMixin, CreateView):
             task.creator = request.user
             task.save()
             form.save_m2m()
-            print(request.POST)
+        messages.success(self.request, self.success_message)
         return HttpResponseRedirect(self.success_url)
 
 
@@ -167,6 +168,7 @@ class LabelCreateView(SuccessMessageMixin, CreateView):
             label = form.save(commit=False)
             label.creator = request.user
             label.save()
+        messages.success(self.request, self.success_message)
         return HttpResponseRedirect(self.success_url)
 
 
@@ -193,4 +195,5 @@ class LabelDeleteView(SuccessMessageMixin, DeleteView):
         except models.ProtectedError:
             get_error_delete_message(self.request, self.extra_context)
             return HttpResponseRedirect(success_url)
+        messages.success(self.request, self.success_message)
         return HttpResponseRedirect(success_url)
