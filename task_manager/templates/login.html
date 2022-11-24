@@ -1,20 +1,13 @@
 {% extends "base.html" %}
+{% load bootstrap4 %}
 
 {% block content %}
 
 <form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-<table>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
-
-<input class="btn btn-primary" type="submit" value="Log in">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="Log in">
+    </div>
 </form>
 {% endblock %}

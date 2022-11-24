@@ -1,13 +1,11 @@
 {% extends "base.html" %}
-
+{% load bootstrap4 %}
 
 {% block content %}
 <h4 class='my-4'>Update the {{ title }}:</h4>
-<br>
 <form action="." method="post">
     {% csrf_token %}
-    {{ form.as_div }}
-    <br>
+    {% bootstrap_form form %}
     <input class="btn btn-primary" type="submit" value="Update {{ title }}">
 </form>
 {% endblock %}

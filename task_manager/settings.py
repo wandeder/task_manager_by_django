@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'task_manager',
     'bootstrap4',
     'django_extensions',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

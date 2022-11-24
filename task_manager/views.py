@@ -9,6 +9,8 @@ from task_manager.models import Status, Task, Label
 from django.http import HttpResponseRedirect
 from django.db import models
 from django.contrib import messages
+from django_filters.views import FilterView
+from task_manager.filters import TaskFilter
 
 
 User = get_user_model()
@@ -42,10 +44,9 @@ class TaskView(DetailView):
     template_name = 'task.html'
 
 
-class TasksList(ListView):
-    model = Task
-    context_object_name = 'tasks_list'
+class TasksList(FilterView):
     template_name = 'tasks_list.html'
+    filterset_class = TaskFilter
 
 
 class LabelsList(ListView):
