@@ -6,7 +6,7 @@ class TaskFilter(FilterSet):
 
     class Meta:
         model = Task
-        fields = ['executor', 'status', 'labels',]
+        fields = ['executor', 'status', 'labels', ]
 
     @property
     def qs(self):

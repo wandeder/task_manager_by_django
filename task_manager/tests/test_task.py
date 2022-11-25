@@ -11,12 +11,12 @@ class CRUD_Tasks_Test(TestCase):
         Status.objects.create(name='status')
         self.status = Status.objects.get(id=1)
         Task.objects.create(
-                            name='task',
-                            description='something',
-                            creator=self.user,
-                            executor=self.user,
-                            status=self.status,
-                        )
+                    name='task',
+                    description='something',
+                    creator=self.user,
+                    executor=self.user,
+                    status=self.status,
+        )
         self.task = Task.objects.get(id=1)
 
     def test_read_task(self):
