@@ -1,13 +1,13 @@
 from django.test import TestCase, Client
-from task_manager.models import Status
+from task_manager.models import status
 from django.urls import reverse, reverse_lazy
 
 
 class CRUD_Status_Test(TestCase):
 
     def setUp(self):
-        Status.objects.create(name='test_status')
-        self.status = Status.objects.get(id=1)
+        status.objects.create(name='test_status')
+        self.status = status.objects.get(id=1)
 
     def test_create_status(self):
         response = Client().post(reverse_lazy('status_create'), {'name': 'something'}, follow=True)

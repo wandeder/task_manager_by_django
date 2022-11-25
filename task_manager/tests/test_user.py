@@ -1,5 +1,5 @@
 from django.test import TestCase, Client
-from task_manager.models import User
+from task_manager.models import user
 from django.urls import reverse, reverse_lazy
 
 
@@ -7,8 +7,8 @@ class CRUD_Users_Test(TestCase):
 
     def setUp(self):
         # Every test needs a user.
-        User.objects.create_user(username='ivan_ivanov', password='qwerty')
-        self.user = User.objects.get(id=1)
+        user.objects.create_user(username='ivan_ivanov', password='qwerty')
+        self.user = user.objects.get(id=1)
 
     def test_create_user(self):
         # Issue a POST request, create new user.
@@ -20,9 +20,7 @@ class CRUD_Users_Test(TestCase):
 
     def test_read_user(self):
         response = self.client.post(reverse('login'), {'username': 'ivan_ivanov', 'password': 'qwerty'}, follow=True)
-        user = User.objects.get(id=1)
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(user.is_authenticated, True)
         self.assertTemplateUsed(response, 'home.html')
         self.assertRedirects(response, reverse('home'))
 

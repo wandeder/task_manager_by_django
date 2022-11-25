@@ -1,13 +1,13 @@
 from django.test import TestCase, Client
-from task_manager.models import Label
+from task_manager.models import label
 from django.urls import reverse, reverse_lazy
 
 
 class CRUD_Labels_Test(TestCase):
 
     def setUp(self):
-        Label.objects.create(name='test_label')
-        self.label = Label.objects.get(id=1)
+        label.objects.create(name='test_label')
+        self.label = label.objects.get(id=1)
 
     def test_create_label(self):
         # Issue a POST request, create new user.

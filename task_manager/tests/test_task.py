@@ -1,23 +1,23 @@
 from django.test import TestCase, Client
-from task_manager.models import User, Task, Status, Label
+from task_manager.models import user, task, status, label
 from django.urls import reverse, reverse_lazy
 
 
 class CRUD_Tasks_Test(TestCase):
 
     def setUp(self):
-        User.objects.create_user(username='ivan_ivanov', password='qwerty')
-        self.user = User.objects.get(id=1)
-        Status.objects.create(name='status')
-        self.status = Status.objects.get(id=1)
-        Task.objects.create(
-                    name='task',
-                    description='something',
-                    creator=self.user,
-                    executor=self.user,
-                    status=self.status,
+        user.objects.create_user(username='ivan_ivanov', password='qwerty')
+        self.user = user.objects.get(id=1)
+        status.objects.create(name='status')
+        self.status = status.objects.get(id=1)
+        task.objects.create(
+            name='task',
+            description='something',
+            creator=self.user,
+            executor=self.user,
+            status=self.status,
         )
-        self.task = Task.objects.get(id=1)
+        self.task = task.objects.get(id=1)
 
     def test_read_task(self):
         response = Client().get(reverse_lazy('task_view', kwargs={'pk': self.task.pk}), follow=True)
