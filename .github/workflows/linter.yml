@@ -1,0 +1,19 @@
+
+name: tests
+  # run linter flake8 for project
+on: [push]
+jobs:
+  build:
+    runs-on: macos-12
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.10.7'
+      - name: install dependecies
+        run: |
+          pip install poetry
+          poetry install
+      - name: run linter
+        run: |
+          make lint
