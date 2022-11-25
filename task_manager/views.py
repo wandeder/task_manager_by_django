@@ -160,7 +160,7 @@ class LabelCreateView(SuccessMessageMixin, CreateView):
     form_class = LabelCreationForm
     template_name = 'create_form.html'
     success_url = reverse_lazy('labels_list')
-    success_message = 'Label \"%(name)s\" was created successfully.'
+    success_message = 'Label was created successfully.'
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
