@@ -1,4 +1,3 @@
-
 name: tests
   # run tests for project
 on: [push]
