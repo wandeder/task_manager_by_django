@@ -1,5 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm
-from task_manager.models import User, Status, Task, Label
+from task_manager.models import user, status, task, label
 from django.forms import ModelForm, Textarea, ModelChoiceField
 
 
@@ -7,14 +7,14 @@ class UserCreationForm(UserCreationForm):
     title = 'user'
 
     class Meta(UserCreationForm.Meta):
-        model = User
+        model = user
 
 
 class StatusCreationForm(ModelForm):
     title = 'status'
 
     class Meta:
-        model = Status
+        model = status
         fields = ['name']
 
 
@@ -24,7 +24,7 @@ class TaskCreationForm(ModelForm):
     # required_css_class = 'form-group'
 
     class Meta:
-        model = Task
+        model = task
         fields = ('name', 'description', 'status', 'executor', 'labels',)
 
 
@@ -32,5 +32,5 @@ class LabelCreationForm(ModelForm):
     title = 'label'
 
     class Meta:
-        model = Label
+        model = label
         fields = ['name']

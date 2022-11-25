@@ -5,7 +5,7 @@ from django.views.generic import DetailView, ListView
 from django.contrib.auth import get_user_model
 from django.urls import reverse_lazy
 from task_manager.forms import *
-from task_manager.models import Status, Task, Label
+from task_manager.models import status, task, label
 from django.http import HttpResponseRedirect, HttpResponse
 from django.db import models
 from django.contrib import messages
@@ -13,7 +13,7 @@ from django_filters.views import FilterView
 from task_manager.filters import TaskFilter
 
 
-User = get_user_model()
+user = get_user_model()
 
 
 def get_error_delete_message(request, extra_context):
@@ -22,24 +22,24 @@ def get_error_delete_message(request, extra_context):
 
 
 class HomeView(TemplateView):
-    model = User
+    model = user
     template_name = 'home.html'
 
 
 class UsersList(ListView):
-    model = User
+    model = user
     context_object_name = 'users_list'
     template_name = 'users_list.html'
 
 
 class StatusesList(ListView):
-    model = Status
+    model = status
     context_object_name = 'statuses_list'
     template_name = 'statuses_list.html'
 
 
 class TaskView(DetailView):
-    model = Task
+    model = task
     context_object_name = 'task'
     template_name = 'task.html'
 
@@ -50,7 +50,7 @@ class TasksList(FilterView):
 
 
 class LabelsList(ListView):
-    model = Label
+    model = label
     context_object_name = 'labels_list'
     template_name = 'labels_list.html'
 
@@ -63,7 +63,7 @@ class UserCreateView(SuccessMessageMixin, CreateView):
 
 
 class UserUpdateView(SuccessMessageMixin, UpdateView):
-    model = User
+    model = user
     template_name = 'update_form.html'
     extra_context = {'title': 'user'}
     fields = ['username', 'first_name', 'last_name', 'email']
@@ -72,7 +72,7 @@ class UserUpdateView(SuccessMessageMixin, UpdateView):
 
 
 class UserDeleteView(SuccessMessageMixin, DeleteView):
-    model = User
+    model = user
     template_name = 'delete_form.html'
     extra_context = {'title': 'user'}
     success_url = reverse_lazy('users_list')
@@ -96,7 +96,7 @@ class StatusCreateView(SuccessMessageMixin, CreateView):
 
 
 class StatusUpdateView(SuccessMessageMixin, UpdateView):
-    model = Status
+    model = status
     template_name = 'update_form.html'
     fields = ['name', ]
     extra_context = {'title': 'status'}
@@ -105,7 +105,7 @@ class StatusUpdateView(SuccessMessageMixin, UpdateView):
 
 
 class StatusDeleteView(SuccessMessageMixin, DeleteView):
-    model = Status
+    model = status
     template_name = 'delete_form.html'
     extra_context = {'title': 'status'}
     success_url = reverse_lazy('statuses_list')
@@ -140,7 +140,7 @@ class TaskCreateView(SuccessMessageMixin, CreateView):
 
 
 class TaskUpdateView(SuccessMessageMixin, UpdateView):
-    model = Task
+    model = task
     template_name = 'update_form.html'
     extra_context = {'title': 'task'}
     fields = ['name', 'description', 'status', 'executor', 'labels']
@@ -149,7 +149,7 @@ class TaskUpdateView(SuccessMessageMixin, UpdateView):
 
 
 class TaskDeleteView(SuccessMessageMixin, DeleteView):
-    model = Task
+    model = task
     template_name = 'delete_form.html'
     extra_context = {'title': 'task'}
     success_url = reverse_lazy('tasks_list')
@@ -173,7 +173,7 @@ class LabelCreateView(SuccessMessageMixin, CreateView):
 
 
 class LabelUpdateView(SuccessMessageMixin, UpdateView):
-    model = Label
+    model = label
     template_name = 'update_form.html'
     fields = ['name', ]
     extra_context = {'title': 'label'}
@@ -182,7 +182,7 @@ class LabelUpdateView(SuccessMessageMixin, UpdateView):
 
 
 class LabelDeleteView(SuccessMessageMixin, DeleteView):
-    model = Label
+    model = label
     template_name = 'delete_form.html'
     extra_context = {'title': 'label'}
     success_url = reverse_lazy('labels_list')

@@ -16,7 +16,7 @@ import os
 import dj_database_url
 
 
-AUTH_USER_MODEL = 'task_manager.User'
+AUTH_USER_MODEL = 'task_manager.user'
 
 # Load envroinments variable
 env_path = os.path.join('.', '.env')

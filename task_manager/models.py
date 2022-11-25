@@ -3,11 +3,11 @@ from django.db import models
 from django.contrib.auth import get_user_model
 
 
-class User(AbstractUser):
+class user(AbstractUser):
     pass
 
 
-class Status(models.Model):
+class status(models.Model):
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -15,7 +15,7 @@ class Status(models.Model):
         return self.name
 
 
-class Label(models.Model):
+class label(models.Model):
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -23,19 +23,19 @@ class Label(models.Model):
         return self.name
 
 
-class Task(models.Model):
+class task(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=700)
-    status = models.ForeignKey(Status, on_delete=models.PROTECT)
+    status = models.ForeignKey(status, on_delete=models.PROTECT)
     creator = models.ForeignKey(get_user_model(), on_delete=models.PROTECT, related_name='creator')
-    executor = models.ForeignKey(User, on_delete=models.PROTECT)
+    executor = models.ForeignKey(user, on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True)
-    labels = models.ManyToManyField(Label, through='Labels_of_Task')
+    labels = models.ManyToManyField(label, through="labels_of_task")
 
     def __str__(self):
         return self.name
 
 
-class Labels_of_Task(models.Model):
-    task = models.ForeignKey(Task, on_delete=models.CASCADE)
-    label = models.ForeignKey(Label, on_delete=models.PROTECT)
+class labels_of_task(models.Model):
+    task = models.ForeignKey(task, on_delete=models.CASCADE)
+    label = models.ForeignKey(label, on_delete=models.PROTECT)

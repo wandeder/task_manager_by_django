@@ -1,5 +1,5 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from task_manager.models import User
+from task_manager.models import user
 
-admin.site.register(User, UserAdmin)
+admin.site.register(user, UserAdmin)

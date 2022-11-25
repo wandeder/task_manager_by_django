@@ -1,11 +1,11 @@
 from django_filters import FilterSet, BooleanFilter
-from task_manager.models import Task
+from task_manager.models import task
 
 
 class TaskFilter(FilterSet):
 
     class Meta:
-        model = Task
+        model = task
         fields = ['executor', 'status', 'labels', ]
 
     @property
