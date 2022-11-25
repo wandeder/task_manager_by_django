@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 from django.urls import reverse_lazy
 from task_manager.forms import *
 from task_manager.models import Status, Task, Label
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.db import models
 from django.contrib import messages
 from django_filters.views import FilterView
