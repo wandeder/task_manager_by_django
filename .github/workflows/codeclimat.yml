@@ -17,7 +17,7 @@ jobs:
         uses: paambaati/codeclimate-action@v3.0.0
         env:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
-          CC_TEST_REPORTER_ID:  c919cf47b3f2cece149dcfec937dc9054be0986df71ab236c1d38d076788f330
+          CC_TEST_REPORTER_ID: 19c3dfcb5a9b4327c1f5dbba5284627b2dd2a20808f71b02fc7c4f7c5693becd 
         with:
           coverageCommand: make coverage-xml
           debug: true
