@@ -3,14 +3,13 @@
 {% load i18n %}
 
 {% translate "Hello" as hello %}
-{% translate "dear guest" as guest %}
 {% translate "You are not logged in yet" as not_login %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
 {% if user.is_authenticated %}
-<p>{{ hello }}, {{ user.username|default:{{ guest }} }}!</p>
+<p>{{ hello }}, {{ user.username }}!</p>
 {% else %}
 <p>{{ not_login }}!</p>
 {% endif %}
