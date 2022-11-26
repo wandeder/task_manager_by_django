@@ -95,8 +95,8 @@ DATABASES = {
     }
 }
 
-#if os.getenv('ON_PRODACT'):
-#DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+# if os.getenv('ON_PRODACT'):
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 
 # Password validation

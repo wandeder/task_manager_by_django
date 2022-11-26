@@ -14,5 +14,7 @@ jobs:
           pip install poetry
           poetry install
       - name: run tests
+        env:
+          name: task-manager33
         run: |
           make test
