@@ -15,6 +15,6 @@ jobs:
           poetry install
       - name: run tests
         run: |
+          make test
         env:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
-          make test
