@@ -10,3 +10,5 @@ Link to app: https://task-manager33.herokuapp.com/
 [![Actions Status](https://github.com/Morozov33/python-project-52/workflows/hexlet-check/badge.svg)](https://github.com/Morozov33/python-project-52/actions)
 [![linter](https://github.com/Morozov33/python-project-52/actions/workflows/linter.yml/badge.svg)](https://github.com/Morozov33/python-project-52/actions/workflows/linter.yml)
 [![tests](https://github.com/Morozov33/python-project-52/actions/workflows/tests.yml/badge.svg)](https://github.com/Morozov33/python-project-52/actions/workflows/tests.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/619e37dc048f2d8e68c7/maintainability)](https://codeclimate.com/github/Morozov33/python-project-52/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/619e37dc048f2d8e68c7/test_coverage)](https://codeclimate.com/github/Morozov33/python-project-52/test_coverage)

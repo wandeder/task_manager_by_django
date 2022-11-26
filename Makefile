@@ -4,11 +4,9 @@ lint: #linter for code
 test: #start pytest
 	poetry run python3 manage.py test
 
-coverage: #start pytest code coverage
-	poetry run pytest --cov task_manage
-
-coverage-xml: #start pytest code coverage and write report is xml-file
-	poetry run pytest --cov task_manager --cov-report xml
+coverage-xml: #start tests code coverage and write report is xml-file for CodeClimate
+	poetry run coverage run --source='.' manage.py test task_manager
+	poetry run coverage xml
 
 start: #starting dev server
 	poetry run python3 manage.py runserver
