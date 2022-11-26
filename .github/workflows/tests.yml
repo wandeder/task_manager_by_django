@@ -15,7 +15,6 @@ jobs:
           poetry install
       - name: run tests
         env:
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
-          DATABASE_URL: ${{ secrets.DATABASE_URL}}
+          name: task-manager33
         run: |
           make test
