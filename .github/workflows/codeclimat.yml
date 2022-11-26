@@ -1,5 +1,5 @@
-name: linter
-  # run linter flake8 for project
+name: codeclimat
+  # run CodeClimat for project
 on: [push]
 jobs:
   build:
@@ -16,6 +16,7 @@ jobs:
       - name: Code Climate Coverage Action
         uses: paambaati/codeclimate-action@v3.0.0
         env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
           CC_TEST_REPORTER_ID:  c919cf47b3f2cece149dcfec937dc9054be0986df71ab236c1d38d076788f330
         with:
           coverageCommand: make coverage-xml
