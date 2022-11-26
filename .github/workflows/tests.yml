@@ -15,6 +15,6 @@ jobs:
           poetry install
       - name: run tests
         env:
-          name: task-manager33
+          SECRET_KEY: ${{ env.SECRET_KEY }}
         run: |
           make test
