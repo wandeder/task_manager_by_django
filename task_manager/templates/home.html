@@ -1,12 +1,16 @@
 <!-- templates/home.html -->
 {% extends 'base.html' %}
 
+{% translate "Hello" as hello %}
+{% translate "dear guest" as guest %}
+{% translate "You are not logged in yet" as not_login %}
+
 {% block title %}Home{% endblock %}
 
 {% block content %}
 {% if user.is_authenticated %}
-  <p>Hello, {{ user.username|default:'dear guest' }}!</p>
+<p>{{ hello }}, {{ user.username|default:{{ guest }} }}!</p>
 {% else %}
-  <p>You are not logged in yet!</p>
+<p>{{ not_login }}!</p>
 {% endif %}
 {% endblock %}

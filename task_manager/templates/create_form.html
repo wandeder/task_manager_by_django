@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% load bootstrap4 %}
+{% translate "Create a new" as create_title%}
 
 {% block content %}
-    <h4 class='my-4'>Create a new {{ form.title }}:</h4>
+<h4 class='my-4'>{{ create_title }}{{ form.title }}:</h4>
     <form action="." method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
         <div class="form-group">
-            <input class="btn btn-primary" type="submit" value="Create {{ form.title }}">
+            <input class="btn btn-primary" type="submit" value="{{ create_title }} {{ form.title }}">
         </div>
     </form>
 {% endblock %}

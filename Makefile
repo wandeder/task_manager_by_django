@@ -20,3 +20,9 @@ shell: #start shell
 
 export: #make export dependens from poetry on Heroku
 	poetry export -f requirements.txt --output requirements.txt
+
+translate: #translate from i18n for Django
+	poetry run django-admin makemessages -l ru
+
+compile-translate: #compile translate for i18n for Django
+	poetry run django-admin compilemessages
