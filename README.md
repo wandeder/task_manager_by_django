@@ -8,3 +8,5 @@ Link to app: https://task-manager33.herokuapp.com/
 
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Morozov33/python-project-52/workflows/hexlet-check/badge.svg)](https://github.com/Morozov33/python-project-52/actions)
+[![linter](https://github.com/Morozov33/python-project-52/actions/workflows/linter.yml/badge.svg)](https://github.com/Morozov33/python-project-52/actions/workflows/linter.yml)
+[![tests](https://github.com/Morozov33/python-project-52/actions/workflows/tests.yml/badge.svg)](https://github.com/Morozov33/python-project-52/actions/workflows/tests.yml)
