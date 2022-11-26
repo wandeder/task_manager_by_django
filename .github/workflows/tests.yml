@@ -15,6 +15,6 @@ jobs:
           poetry install
       - name: run tests
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL
+          DATABASE_URL: ${{ secrets.DATABASE_URL}}
         run: |
           make test
