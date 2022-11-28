@@ -191,7 +191,7 @@ msgstr "Вы разлогинены."
 
 #: task_manager/views.py:85
 msgid "Your account has been successfully created."
-msgstr "Ваш аккаунт создан."
+msgstr "Пользователь успешно зарегистрирован"
 
 #: task_manager/views.py:93
 msgid "Your account has been successfully updated."
