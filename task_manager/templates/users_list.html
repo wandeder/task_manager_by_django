@@ -5,11 +5,8 @@
 
 {% translate "Users list" as list %}
 {% translate "Create task" as task %}
-{% translate "Only my task" as my_task %}
 {% translate "ID" as id %}
-{% translate "First name" as first_name %}
-{% translate "Last name" as last_name %}
-{% translate "Email" as email %}
+{% translate "Full name" as full_name %}
 {% translate "Username" as username %}
 {% translate "Date create" as date_ %}
 {% translate "Update" as update %}
@@ -21,10 +18,8 @@
   <thead>
     <tr>
         <th>{{ id }}</th>
-        <th>{{ first_name }}</th>
-        <th>{{ last_name }}</th>
-        <th>{{ email }}</th>
         <th>{{ username }}</th>
+        <th>{{ full_name }}</th>
         <th>{{ date_ }}</th>
         <th></th>
     </tr>
@@ -35,10 +30,8 @@
     {% if not person.is_staff %}
         <tr>
             <td>{{ person.id }}</td>
-            <td>{{ person.first_name }}</td>
-            <td>{{ person.last_name }}</td>
-            <td>{{ person.email }}</td>
             <td>{{ person.username }}</td>
+            <td>{{ person.first_name }} {{ person.last_name }}</td>
             <td>{{ person.date_joined }}</td>
             {% if user.is_authenticated and user.username == person.username %}
                 <td>
