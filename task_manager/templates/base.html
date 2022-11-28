@@ -6,7 +6,7 @@
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
 <!-- Current language: {{ LANGUAGE_CODE }} -->
-    {% translate "Log in" as log_in %}
+    {% translate "Enter" as enter %}
     {% translate "Log out" as log_out %}
     {% translate "Users" as users %}
     {% translate "Sign up" as sign_up %}
@@ -55,7 +55,7 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-linke" href="/login">{{ log_in }}</a>
+                        <a class="nav-linke" href="/login">{{ enter }}</a>
                     </li>
                 </ul>
             {% endif %}
