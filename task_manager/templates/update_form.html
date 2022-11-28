@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 {% load bootstrap4 %}
+{% load i18n %}
 
 {% block content %}
-<h4 class='my-4'>Update the {{ title }}:</h4>
+
+{% translate "Update the" as update_ %}
+{% translate "Update" as update %}
+
+<h4 class='my-4'>{{ updete_ }} {{ title }}:</h4>
 <form action="." method="post">
     {% csrf_token %}
     {% bootstrap_form form %}
-    <input class="btn btn-primary" type="submit" value="Update {{ title }}">
+    <input class="btn btn-primary" type="submit" value="{{ update }}">
 </form>
 {% endblock %}

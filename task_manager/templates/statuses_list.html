@@ -1,16 +1,26 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 
-<h3 class="my-4">Statuses list:</h3>
-<h5><a href="/statuses/create/">Create status</a></h5>
+{% translate "Statuses list" as list %}
+{% translate "Create status" as create %}
+{% translate "ID" as id %}
+{% translate "Name" as name %}
+{% translate "Date create" as date_ %}
+{% translate "Update" as update %}
+{% translate "Delete" as delete %}
+
+
+<h3 class="my-4">{{ list}}:</h3>
+<h5><a href="/statuses/create/">{{ create }}</a></h5>
 <p></p>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Date create</th>
+        <th>{{ id }}</th>
+        <th>{{ name }}</th>
+        <th>{{ date_ }}/th>
       <th></th>
     </tr>
   </thead>
@@ -23,9 +33,9 @@
             <td>{{ status.created_at }}</td>
             {% if user.is_authenticated %}
                 <td>
-                    <a href="/statuses/{{ status.id }}/update/">Update</a>
+                    <a href="/statuses/{{ status.id }}/update/">{{ update }}</a>
                     <br>
-                    <a href="/statuses/{{ status.id }}/delete/">Delete</a>
+                    <a href="/statuses/{{ status.id }}/delete/">{{ delete }}</a>
                 </td>
             {% else %}
                 <td></td>

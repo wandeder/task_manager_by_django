@@ -1,19 +1,32 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 
-<h3 class="my-4">Users list:</h3>
+{% translate "Users list" as list %}
+{% translate "Create task" as task %}
+{% translate "Only my task" as my_task %}
+{% translate "ID" as id %}
+{% translate "First name" as first_name %}
+{% translate "Last name" as last_name %}
+{% translate "Email" as email %}
+{% translate "Username" as username %}
+{% translate "Date create" as date_ %}
+{% translate "Update" as update %}
+{% translate "Delete" as delete %}
+
+<h3 class="my-4">{{ list }}:</h3>
 
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>Username</th>
-      <th>Date create</th>
-      <th></th>
+        <th>{{ id }}</th>
+        <th>{{ first_name }}</th>
+        <th>{{ last_name }}</th>
+        <th>{{ email }}</th>
+        <th>{{ username }}</th>
+        <th>{{ date_ }}</th>
+        <th></th>
     </tr>
   </thead>
   <tbody>
@@ -29,9 +42,9 @@
             <td>{{ person.date_joined }}</td>
             {% if user.is_authenticated and user.username == person.username %}
                 <td>
-                    <a href="/users/{{ user.id }}/update/">Update</a>
+                    <a href="/users/{{ user.id }}/update/">{{ update }}</a>
                     <br>
-                    <a href="/users/{{ user.id }}/delete/">Delete</a>
+                    <a href="/users/{{ user.id }}/delete/">{{ delete }}</a>
                 </td>
             {% else %}
                 <td></td>

@@ -1,8 +1,19 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
+
+{% translate "Task" as task %}
+{% translate "Author" as creator %}
+{% translate "Executor" as executor %}
+{% translate "Status" as status %}
+{% translate "Date create" as date_ %}
+{% translate "Labels" as labels %}
+{% translate "Update" as update %}
+{% translate "Delete" as delete %}
+
 <div class="container wrapper flex-grow-1">
-    <h3 class="my-4">Task:</h3>
+    <h3 class="my-4">{{ task }}:</h3>
     <div class="card">
         <div class="card-header bg-secondary text-white">
             <h2>{{ task.name }}</h2>
@@ -12,24 +23,24 @@
             <hr>
             <div class="container">
                 <div class="row p-1">
-                    <div class="col">Author</div>
+                    <div class="col">{{ creator }}/div>
                     <div class="col">{{ task.creator }}</div>
                 </div>
                  <div class="row p-1">
-                    <div class="col">Executor</div>
+                     <div class="col">{{ executor }}</div>
                     <div class="col">{{ task.executor }}</div>
                  </div>
                  <div class="row p-1">
-                    <div class="col">Status</div>
+                     <div class="col">{{ status }}</div>
                     <div class="col">{{ task.status }}</div>
                  </div>
                 <div class="row p-1">
-                    <div class="col">Created date</div>
+                    <div class="col">{{ date_ }}</div>
                     <div class="col">{{ task.created_at }}</div>
                 </div>
                 <div class="row p-1">
                     <div class="col">
-                        <p>Labels:<p>
+                        <p>{{ labels }}:<p>
                         <ul>
                             {% for label in task.labels.all %}
                                 <li>{{ label.name }}</li>
@@ -39,10 +50,10 @@
                 </div>
                 <div class="row p-1">
                     <div class="col">
-                        <a href="/tasks/{{ task.id }}/update/">Update</a>
+                        <a href="/tasks/{{ task.id }}/update/">{{ update }}</a>
                         <br>
                         {% if user.id == task.creator_id %}
-                            <a href="/tasks/{{ task.id }}/delete/">Delete</a>
+                        <a href="/tasks/{{ task.id }}/delete/">{{ delete }}</a>
                         {% endif %}
                     </div>
                 </div>

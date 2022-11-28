@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% load bootstrap4 %}
+{% load i18n %}
 
 {% block content %}
+{% translate "Log in" as log_in %}
 
 <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
     {% bootstrap_form form %}
     <div class="form-group">
-        <input class="btn btn-primary" type="submit" value="Log in">
+        <input class="btn btn-primary" type="submit" value={{ log_in }}>
     </div>
 </form>
 {% endblock %}
