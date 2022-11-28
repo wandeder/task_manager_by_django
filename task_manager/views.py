@@ -5,7 +5,7 @@ from django.views.generic import DetailView, ListView
 from django.contrib.auth import get_user_model, views, login, logout
 from django.urls import reverse_lazy
 from task_manager.forms import *
-from task_manager.models import status, task, label
+from task_manager.models import user, status, task, label
 from django.http import HttpResponseRedirect, HttpResponse
 from django.db import models
 from django.contrib import messages
@@ -14,9 +14,7 @@ from task_manager.filters import TaskFilter
 from django.utils.translation import gettext as _
 from django.utils.translation import gettext_lazy
 from task_manager import settings
-
-
-user = get_user_model()
+from django.forms.formsets import formset_factory
 
 
 def get_error_delete_message(request):
@@ -87,9 +85,10 @@ class UserCreateView(SuccessMessageMixin, CreateView):
 
 class UserUpdateView(SuccessMessageMixin, UpdateView):
     model = user
+    fields = ['username', 'first_name', 'last_name', 'email' ]
     template_name = 'update_form.html'
-    fields = ['username', 'first_name', 'last_name', 'email']
     success_url = reverse_lazy('users_list')
+    extra_context = {'password_form': PasswordChangeForm(user)}
     success_message = _('Your account has been successfully updated.')
 
 

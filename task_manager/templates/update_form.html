@@ -4,13 +4,13 @@
 
 {% block content %}
 
-{% translate "Update the" as update_ %}
 {% translate "Update" as update %}
 
-<h4 class='my-4'>{{ updete_ }} {{ title }}:</h4>
+<h4 class='my-4'>{{ update }}:</h4>
 <form action="." method="post">
     {% csrf_token %}
     {% bootstrap_form form %}
+    {% bootstrap_form password_form %}
     <input class="btn btn-primary" type="submit" value="{{ update }}">
 </form>
 {% endblock %}

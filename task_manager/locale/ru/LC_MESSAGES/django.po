@@ -161,10 +161,6 @@ msgstr "Создать задачу"
 msgid "Only my task"
 msgstr "Только мои задачи"
 
-#: task_manager/templates/update_form.html:7
-msgid "Update the"
-msgstr "Обновить"
-
 #: task_manager/templates/users_list.html:6
 msgid "Users list"
 msgstr "Список пользователей"
