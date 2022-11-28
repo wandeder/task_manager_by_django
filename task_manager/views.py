@@ -2,7 +2,7 @@ from django.views.generic.base import TemplateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView, ListView
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, views, login, logout
 from django.urls import reverse_lazy
 from task_manager.forms import *
 from task_manager.models import status, task, label
@@ -11,19 +11,41 @@ from django.db import models
 from django.contrib import messages
 from django_filters.views import FilterView
 from task_manager.filters import TaskFilter
+from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy
+from task_manager import settings
 
 
 user = get_user_model()
 
 
-def get_error_delete_message(request, extra_context):
-    text_error = f"Can not delete, because this {extra_context.get('title')} is used"
+def get_error_delete_message(request):
+    text_error = _(f"Can not delete, because this is used")
     return messages.error(request, text_error)
 
 
 class HomeView(TemplateView):
     model = user
     template_name = 'home.html'
+
+
+class LoginView(views.LoginView):
+    template_name='login.html'
+    success_message = gettext_lazy('You are log in.')
+
+    def form_valid(self, form):
+        """Security check complete. Log the user in."""
+        login(self.request, form.get_user())
+        messages.success(self.request, self.success_message)
+        return HttpResponseRedirect(self.get_success_url())
+
+
+class LogoutView(views.LogoutView):
+    success_message = _('You are log out.')
+
+    def get_success_url(self):
+        messages.success(self.request, self.success_message)
+        return self.get_redirect_url() or self.get_default_redirect_url()
 
 
 class UsersList(ListView):
@@ -59,7 +81,7 @@ class UserCreateView(SuccessMessageMixin, CreateView):
     form_class = UserCreationForm
     template_name = 'create_form.html'
     success_url = reverse_lazy('login')
-    success_message = '\"%(username)s\" your account has been successfully created.'
+    success_message = _('Your account has been successfully created.')
 
 
 class UserUpdateView(SuccessMessageMixin, UpdateView):
@@ -68,7 +90,7 @@ class UserUpdateView(SuccessMessageMixin, UpdateView):
     extra_context = {'title': 'user'}
     fields = ['username', 'first_name', 'last_name', 'email']
     success_url = reverse_lazy('users_list')
-    success_message = '\"%(username)s\" your account has been successfully updated.'
+    success_message = _('Your account has been successfully updated.')
 
 
 class UserDeleteView(SuccessMessageMixin, DeleteView):
@@ -76,14 +98,14 @@ class UserDeleteView(SuccessMessageMixin, DeleteView):
     template_name = 'delete_form.html'
     extra_context = {'title': 'user'}
     success_url = reverse_lazy('users_list')
-    success_message = 'Your account has been successfully deleted.'
+    success_message = _('Your account has been successfully deleted.')
 
     def form_valid(self, form):
         success_url = self.get_success_url()
         try:
             self.object.delete()
         except models.ProtectedError:
-            get_error_delete_message(self.request, self.extra_context)
+            get_error_delete_message(self.request)
             return HttpResponseRedirect(success_url)
         return HttpResponseRedirect(success_url)
 
@@ -92,22 +114,22 @@ class StatusCreateView(SuccessMessageMixin, CreateView):
     form_class = StatusCreationForm
     template_name = 'create_form.html'
     success_url = reverse_lazy('statuses_list')
-    success_message = 'Status \"%(name)s\" was created successfully.'
+    success_message = _('Status was created successfully.')
 
 
 class StatusUpdateView(SuccessMessageMixin, UpdateView):
     model = status
     template_name = 'update_form.html'
     fields = ['name', ]
-    extra_context = {'title': 'status'}
+    extra_context = {'title': _('status')}
     success_url = reverse_lazy('statuses_list')
-    success_message = 'Status \"%(name)s\" was updated successfully.'
+    success_message = 'Status was updated successfully.'
 
 
 class StatusDeleteView(SuccessMessageMixin, DeleteView):
     model = status
     template_name = 'delete_form.html'
-    extra_context = {'title': 'status'}
+    extra_context = {'title': _('status')}
     success_url = reverse_lazy('statuses_list')
     success_message = 'Status was deleted successfully.'
 
@@ -116,7 +138,7 @@ class StatusDeleteView(SuccessMessageMixin, DeleteView):
         try:
             self.object.delete()
         except models.ProtectedError:
-            get_error_delete_message(self.request, self.extra_context)
+            get_error_delete_message(self.request)
             return HttpResponseRedirect(success_url)
         messages.success(self.request, self.success_message)
         return HttpResponseRedirect(success_url)
@@ -126,7 +148,7 @@ class TaskCreateView(SuccessMessageMixin, CreateView):
     form_class = TaskCreationForm
     template_name = 'create_form.html'
     success_url = reverse_lazy('tasks_list')
-    success_message = 'Task was created successfully.'
+    success_message = _('Task was created successfully.')
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
@@ -142,25 +164,25 @@ class TaskCreateView(SuccessMessageMixin, CreateView):
 class TaskUpdateView(SuccessMessageMixin, UpdateView):
     model = task
     template_name = 'update_form.html'
-    extra_context = {'title': 'task'}
+    extra_context = {'title': _('task')}
     fields = ['name', 'description', 'status', 'executor', 'labels']
     success_url = reverse_lazy('tasks_list')
-    success_message = 'Task \"%(name)s\" was updated successfully.'
+    success_message = _('Task was updated successfully.')
 
 
 class TaskDeleteView(SuccessMessageMixin, DeleteView):
     model = task
     template_name = 'delete_form.html'
-    extra_context = {'title': 'task'}
+    extra_context = {'title': _('task')}
     success_url = reverse_lazy('tasks_list')
-    success_message = 'Task was deleted successfully.'
+    success_message = _('Task was deleted successfully.')
 
 
 class LabelCreateView(SuccessMessageMixin, CreateView):
     form_class = LabelCreationForm
     template_name = 'create_form.html'
     success_url = reverse_lazy('labels_list')
-    success_message = 'Label was created successfully.'
+    success_message = _('Label was created successfully.')
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
@@ -176,24 +198,24 @@ class LabelUpdateView(SuccessMessageMixin, UpdateView):
     model = label
     template_name = 'update_form.html'
     fields = ['name', ]
-    extra_context = {'title': 'label'}
+    extra_context = {'title': _('label')}
     success_url = reverse_lazy('labels_list')
-    success_message = 'Label \"%(name)s\" was updated successfully.'
+    success_message = _('Label was updated successfully.')
 
 
 class LabelDeleteView(SuccessMessageMixin, DeleteView):
     model = label
     template_name = 'delete_form.html'
-    extra_context = {'title': 'label'}
+    extra_context = {'title': _('label')}
     success_url = reverse_lazy('labels_list')
-    success_message = 'Label was deleted successfully.'
+    success_message = _('Label was deleted successfully.')
 
     def form_valid(self, form):
         success_url = self.get_success_url()
         try:
             self.object.delete()
         except models.ProtectedError:
-            get_error_delete_message(self.request, self.extra_context)
+            get_error_delete_message(self.request)
             return HttpResponseRedirect(success_url)
         messages.success(self.request, self.success_message)
         return HttpResponseRedirect(success_url)

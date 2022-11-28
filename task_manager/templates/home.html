@@ -3,14 +3,4 @@
 {% load i18n %}
 
 {% block content %}
-
-    {% translate "Hello" as hello %}
-    {% translate "You are not logged in yet" as not_login %}
-
-    {% if user.is_authenticated %}
-        <p>{{ hello }}, {{ user.username }}!</p>
-    {% else %}
-        <p>{{ not_login }}!</p>
-    {% endif %}
-
 {% endblock %}
