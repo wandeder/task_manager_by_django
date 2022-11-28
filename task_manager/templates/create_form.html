@@ -6,7 +6,7 @@
 
 {% translate "Create" as create %}
 
-<h4 class='my-4'>{{ create }}{{ title }}:</h4>
+<h4 class='my-4'>{{ create }}:</h4>
     <form action="." method="post">
         {% csrf_token %}
         {% bootstrap_form form %}

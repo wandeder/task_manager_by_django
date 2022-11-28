@@ -20,7 +20,7 @@ user = get_user_model()
 
 
 def get_error_delete_message(request):
-    text_error = _(f"Can not delete, because this is used")
+    text_error = _("Can not delete, because this is used")
     return messages.error(request, text_error)
 
 
@@ -30,7 +30,7 @@ class HomeView(TemplateView):
 
 
 class LoginView(views.LoginView):
-    template_name='login.html'
+    template_name = 'login.html'
     success_message = gettext_lazy('You are log in.')
 
     def form_valid(self, form):
@@ -87,7 +87,6 @@ class UserCreateView(SuccessMessageMixin, CreateView):
 class UserUpdateView(SuccessMessageMixin, UpdateView):
     model = user
     template_name = 'update_form.html'
-    extra_context = {'title': 'user'}
     fields = ['username', 'first_name', 'last_name', 'email']
     success_url = reverse_lazy('users_list')
     success_message = _('Your account has been successfully updated.')
@@ -96,7 +95,6 @@ class UserUpdateView(SuccessMessageMixin, UpdateView):
 class UserDeleteView(SuccessMessageMixin, DeleteView):
     model = user
     template_name = 'delete_form.html'
-    extra_context = {'title': 'user'}
     success_url = reverse_lazy('users_list')
     success_message = _('Your account has been successfully deleted.')
 

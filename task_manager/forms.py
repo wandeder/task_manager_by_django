@@ -4,10 +4,10 @@ from django.forms import ModelForm, Textarea, ModelChoiceField
 
 
 class UserCreationForm(UserCreationForm):
-    title = 'user'
 
     class Meta(UserCreationForm.Meta):
         model = user
+        fields = ['first_name', 'last_name', 'username', ]
 
 
 class StatusCreationForm(ModelForm):
