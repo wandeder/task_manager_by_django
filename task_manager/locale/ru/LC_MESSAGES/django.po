@@ -118,7 +118,7 @@ msgstr "Дата создания"
 #: task_manager/templates/update_form.html:8
 #: task_manager/templates/users_list.html:12
 msgid "Update"
-msgstr "Обновить"
+msgstr "Изменить"
 
 #: task_manager/templates/login.html:6
 msgid "Log in"
