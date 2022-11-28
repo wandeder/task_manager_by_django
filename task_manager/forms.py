@@ -1,9 +1,11 @@
 from django.contrib.auth.forms import UserCreationForm
 from task_manager.models import user, status, task, label
 from django.forms import ModelForm, Textarea, ModelChoiceField
+from django.utils.translation import gettext_lazy as _
 
 
 class UserCreationForm(UserCreationForm):
+    button = _('Registrate')
 
     class Meta(UserCreationForm.Meta):
         model = user
@@ -11,7 +13,7 @@ class UserCreationForm(UserCreationForm):
 
 
 class StatusCreationForm(ModelForm):
-    title = 'status'
+    button = _('Create')
 
     class Meta:
         model = status
@@ -19,9 +21,8 @@ class StatusCreationForm(ModelForm):
 
 
 class TaskCreationForm(ModelForm):
-    title = 'task'
+    button = _('Create')
     error_css_class = 'error'
-    # required_css_class = 'form-group'
 
     class Meta:
         model = task
@@ -29,7 +30,7 @@ class TaskCreationForm(ModelForm):
 
 
 class LabelCreationForm(ModelForm):
-    title = 'label'
+    button = _('Create')
 
     class Meta:
         model = label

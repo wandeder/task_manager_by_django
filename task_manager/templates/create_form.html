@@ -11,7 +11,7 @@
         {% csrf_token %}
         {% bootstrap_form form %}
         <div class="form-group">
-            <input class="btn btn-primary" type="submit" value="{{ create }}">
+            <input class="btn btn-primary" type="submit" value="{{ form.button }}">
         </div>
     </form>
 
