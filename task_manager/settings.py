@@ -41,13 +41,13 @@ ALLOWED_HOSTS = ['webserver', '127.0.0.1', 'task-manager33.herokuapp.com', ]
 # Application definition
 
 INSTALLED_APPS = [
+    'task_manager',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'task_manager',
     'bootstrap4',
     'django_extensions',
     'django_filters',
@@ -122,6 +122,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
 LANGUAGE_CODE = 'ru'
+
+LANGUAGES = (
+    ('ru', 'Russian'),
+    ('en', 'English'),
+)
 
 TIME_ZONE = 'UTC'
 
