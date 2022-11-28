@@ -22,7 +22,7 @@ msgstr ""
 
 #: task_manager/forms.py:8 task_manager/views.py:84
 msgid "Registrate"
-msgstr "Зарегестрировать"
+msgstr "Зарегистрировать"
 
 #: task_manager/forms.py:16 task_manager/forms.py:24 task_manager/forms.py:33
 #: task_manager/templates/create_form.html:7
