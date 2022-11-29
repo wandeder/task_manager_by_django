@@ -239,7 +239,7 @@ msgstr "задача"
 
 #: task_manager/views.py:172
 msgid "Task was updated successfully"
-msgstr "Задача успешно изменёна"
+msgstr "Задача успешно изменена"
 
 #: task_manager/views.py:180
 msgid "Task was deleted successfully"
@@ -255,7 +255,7 @@ msgstr "метка"
 
 #: task_manager/views.py:205
 msgid "Label was updated successfully"
-msgstr "Метка успешно изменёна"
+msgstr "Метка успешно изменена"
 
 #: task_manager/views.py:213
 msgid "Label was deleted successfully"
