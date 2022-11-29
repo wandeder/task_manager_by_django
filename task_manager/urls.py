@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from task_manager.views import *
+from task_manager.views import (HomeView, LoginView, LogoutView, UsersList,
+                                UserCreateView, UserUpdateView, UserDeleteView,
+                                StatusesList, StatusCreateView,
+                                StatusUpdateView, StatusDeleteView, TaskView,
+                                TasksList, TaskCreateView, TaskUpdateView,
+                                TaskDeleteView, LabelsList, LabelCreateView,
+                                LabelUpdateView, LabelDeleteView)
 
 
 urlpatterns = [
@@ -25,19 +31,28 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'),
     path('users/', UsersList.as_view(), name='users_list'),
     path('users/create/', UserCreateView.as_view(), name='user_create'),
-    path('users/<int:pk>/update/', UserUpdateView.as_view(), name='user_update'),
-    path('users/<int:pk>/delete/', UserDeleteView.as_view(), name='user_delete'),
+    path('users/<int:pk>/update/', UserUpdateView.as_view(),
+         name='user_update'),
+    path('users/<int:pk>/delete/', UserDeleteView.as_view(),
+         name='user_delete'),
     path('statuses/', StatusesList.as_view(), name='statuses_list'),
-    path('statuses/create/', StatusCreateView.as_view(), name='status_create'),
-    path('statuses/<int:pk>/update/', StatusUpdateView.as_view(), name='status_update'),
-    path('statuses/<int:pk>/delete/', StatusDeleteView.as_view(), name='status_delete'),
+    path('statuses/create/', StatusCreateView.as_view(),
+         name='status_create'),
+    path('statuses/<int:pk>/update/', StatusUpdateView.as_view(),
+         name='status_update'),
+    path('statuses/<int:pk>/delete/', StatusDeleteView.as_view(),
+         name='status_delete'),
     path('tasks/<int:pk>/', TaskView.as_view(), name='task_view'),
     path('tasks/', TasksList.as_view(), name='tasks_list'),
     path('tasks/create/', TaskCreateView.as_view(), name='task_create'),
-    path('tasks/<int:pk>/update/', TaskUpdateView.as_view(), name='task_update'),
-    path('tasks/<int:pk>/delete/', TaskDeleteView.as_view(), name='task_delete'),
+    path('tasks/<int:pk>/update/', TaskUpdateView.as_view(),
+         name='task_update'),
+    path('tasks/<int:pk>/delete/', TaskDeleteView.as_view(),
+         name='task_delete'),
     path('labels/', LabelsList.as_view(), name='labels_list'),
     path('labels/create/', LabelCreateView.as_view(), name='label_create'),
-    path('labels/<int:pk>/update/', LabelUpdateView.as_view(), name='label_update'),
-    path('labels/<int:pk>/delete/', LabelDeleteView.as_view(), name='label_delete'),
+    path('labels/<int:pk>/update/', LabelUpdateView.as_view(),
+         name='label_update'),
+    path('labels/<int:pk>/delete/', LabelDeleteView.as_view(),
+         name='label_delete'),
 ]

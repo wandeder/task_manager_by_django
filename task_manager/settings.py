@@ -184,11 +184,14 @@ BOOTSTRAP4 = {
         "crossorigin": "anonymous",
     },
 
-    # Put JavaScript in the HEAD section of the HTML document (only relevant if you use bootstrap4.html)
+    # Put JavaScript in the HEAD section of the HTML document
+    # (only relevant if you use bootstrap4.html)
     'javascript_in_head': False,
 
-    # Include jQuery with Bootstrap JavaScript False|falsy|slim|full (default=False)
-    # False - means tag bootstrap_javascript use default value - `falsy` and does not include jQuery)
+    # Include jQuery with Bootstrap JavaScript
+    # False|falsy|slim|full (default=False)
+    # False - means tag bootstrap_javascript use default value
+    # - `falsy` and does not include jQuery)
     'include_jquery': False,
 
     # Label class to use in horizontal forms
@@ -206,7 +209,8 @@ BOOTSTRAP4 = {
     # Class to indicate error (better to set this in your Django form)
     'error_css_class': 'is-invalid',
 
-    # Class to indicate success, meaning the field has valid input (better to set this in your Django form)
+    # Class to indicate success, meaning the field has valid input
+    # (better to set this in your Django form)
     'success_css_class': 'is-valid',
 }
 

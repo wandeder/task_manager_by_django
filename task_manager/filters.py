@@ -4,7 +4,8 @@ from django.utils.translation import gettext_lazy as _
 
 
 class TaskFilter(FilterSet):
-    labels = ModelMultipleChoiceFilter(queryset=label_model.objects.all(), label=_('Label'), conjoined=True)
+    labels = ModelMultipleChoiceFilter(queryset=label_model.objects.all(),
+                                       label=_('Label'), conjoined=True)
 
     class Meta:
         model = task

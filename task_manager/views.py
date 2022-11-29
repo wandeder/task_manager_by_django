@@ -2,19 +2,19 @@ from django.views.generic.base import TemplateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView, ListView
-from django.contrib.auth import get_user_model, views, login, logout
+from django.contrib.auth import views, login
 from django.urls import reverse_lazy
-from task_manager.forms import *
+from task_manager.forms import (UserCreationForm, PasswordUpdateForm,
+                                StatusCreationForm, TaskCreationForm,
+                                LabelCreationForm,)
 from task_manager.models import user, status, task, label
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 from django.db import models
 from django.contrib import messages
 from django_filters.views import FilterView
 from task_manager.filters import TaskFilter
 from django.utils.translation import gettext as _
 from django.utils.translation import gettext_lazy
-from task_manager import settings
-from django.forms.formsets import formset_factory
 
 
 def get_error_delete_message(request):

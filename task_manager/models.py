@@ -28,12 +28,29 @@ class label(models.Model):
 
 class task(models.Model):
     name = models.CharField(max_length=100, verbose_name=_('Name'))
-    description = models.TextField(max_length=700, verbose_name=_('Description'))
-    status = models.ForeignKey(status, on_delete=models.PROTECT, verbose_name=_('Status'))
-    creator = models.ForeignKey(get_user_model(), on_delete=models.PROTECT, related_name='creator')
-    executor = models.ForeignKey(user, on_delete=models.PROTECT, null=True, verbose_name=_('Executor'))
+    description = models.TextField(
+            max_length=700,
+            verbose_name=_('Description')
+    )
+    status = models.ForeignKey(
+            status, on_delete=models.PROTECT,
+            verbose_name=_('Status'),
+    )
+    creator = models.ForeignKey(
+            get_user_model(),
+            on_delete=models.PROTECT,
+            related_name='creator',
+    )
+    executor = models.ForeignKey(
+            user, on_delete=models.PROTECT,
+            null=True, verbose_name=_('Executor'),
+    )
     created_at = models.DateTimeField(auto_now_add=True)
-    labels = models.ManyToManyField(label, through="labels_of_task", verbose_name=_('Labels'))
+    labels = models.ManyToManyField(
+            label,
+            through="labels_of_task",
+            verbose_name=_('Labels'),
+    )
 
     def __str__(self):
         return self.name

@@ -1,6 +1,8 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from task_manager.models import user, status, task, label
-from django.forms import ModelForm, Textarea, ModelChoiceField, CharField, PasswordInput, ValidationError, Select, ModelMultipleChoiceField
+from django.forms import (ModelForm, Textarea, ModelChoiceField,
+                          CharField, PasswordInput, ValidationError,
+                          ModelMultipleChoiceField)
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.forms import PasswordChangeForm, SetPasswordForm
 from collections import OrderedDict
@@ -25,9 +27,22 @@ class StatusCreationForm(ModelForm):
 class TaskCreationForm(ModelForm):
     model = task
     button = _('Create')
-    description = CharField(max_length=700, widget=Textarea(), required=False, label=_('Description'))
-    executor = ModelChoiceField(queryset=user.objects.all(), required=False, label=_('Executor'))
-    labels = ModelMultipleChoiceField(queryset=label.objects.all(), required=False, label=_('Labels'))
+    description = CharField(
+            max_length=700,
+            widget=Textarea(),
+            required=False,
+            label=_('Description'),
+    )
+    executor = ModelChoiceField(
+            queryset=user.objects.all(),
+            required=False,
+            label=_('Executor'),
+    )
+    labels = ModelMultipleChoiceField(
+            queryset=label.objects.all(),
+            required=False,
+            label=_('Labels'),
+    )
 
     class Meta:
         model = task
@@ -51,7 +66,10 @@ class UserUpdateForm(UserChangeForm):
 class PasswordUpdateForm(PasswordChangeForm):
 
     password1 = CharField(label=_("Password"), widget=PasswordInput)
-    password2 = CharField(label=_("Password confirmation"), widget=PasswordInput)
+    password2 = CharField(
+            label=_("Password confirmation"),
+            widget=PasswordInput,
+    )
 
     class Meta:
         model = user
