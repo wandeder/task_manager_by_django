@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-29 10:50+0300\n"
+"POT-Creation-Date: 2022-11-29 11:12+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -96,7 +96,7 @@ msgstr "Задачи"
 #: task_manager/templates/statuses_list.html:12
 #: task_manager/templates/task.html:13
 #: task_manager/templates/tasks_list.html:17
-#: task_manager/templates/users_list.html:13
+#: task_manager/templates/users_list.html:12
 msgid "Delete"
 msgstr "Удалить"
 
@@ -123,7 +123,7 @@ msgstr "Создать метку"
 #: task_manager/templates/labels_list.html:8
 #: task_manager/templates/statuses_list.html:8
 #: task_manager/templates/tasks_list.html:10
-#: task_manager/templates/users_list.html:8
+#: task_manager/templates/users_list.html:7
 msgid "ID"
 msgstr "ID"
 
@@ -131,7 +131,7 @@ msgstr "ID"
 #: task_manager/templates/statuses_list.html:10
 #: task_manager/templates/task.html:10
 #: task_manager/templates/tasks_list.html:15
-#: task_manager/templates/users_list.html:11
+#: task_manager/templates/users_list.html:10
 msgid "Date create"
 msgstr "Дата создания"
 
@@ -140,7 +140,7 @@ msgstr "Дата создания"
 #: task_manager/templates/task.html:12
 #: task_manager/templates/tasks_list.html:16
 #: task_manager/templates/update_form.html:7
-#: task_manager/templates/users_list.html:12
+#: task_manager/templates/users_list.html:11
 msgid "Update"
 msgstr "Изменить"
 
@@ -169,7 +169,6 @@ msgid "Tasks list"
 msgstr "Список задач"
 
 #: task_manager/templates/tasks_list.html:8
-#: task_manager/templates/users_list.html:7
 msgid "Create task"
 msgstr "Создать задачу"
 
@@ -181,11 +180,11 @@ msgstr "Только мои задачи"
 msgid "Users list"
 msgstr "Список пользователей"
 
-#: task_manager/templates/users_list.html:9
+#: task_manager/templates/users_list.html:8
 msgid "Full name"
 msgstr "Полное имя"
 
-#: task_manager/templates/users_list.html:10
+#: task_manager/templates/users_list.html:9
 msgid "Username"
 msgstr "Имя пользователя"
 
