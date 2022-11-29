@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-29 15:36+0300\n"
+"POT-Creation-Date: 2022-11-29 15:51+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -175,6 +175,10 @@ msgstr "Создать задачу"
 #: task_manager/templates/tasks_list.html:9
 msgid "Only my task"
 msgstr "Только свои задачи"
+
+#: task_manager/templates/tasks_list.html:18
+msgid "Apply"
+msgstr "Показать"
 
 #: task_manager/templates/users_list.html:6
 msgid "Users list"
