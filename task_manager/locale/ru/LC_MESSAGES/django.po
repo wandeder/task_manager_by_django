@@ -199,7 +199,7 @@ msgstr "Пользователь успешно зарегистрирован"
 
 #: task_manager/views.py:95
 msgid "Your account has been successfully updated."
-msgstr "Ваш аккаунт обновлен."
+msgstr "Пользователь успешно изменён."
 
 #: task_manager/views.py:102
 msgid "Your account has been successfully deleted."
