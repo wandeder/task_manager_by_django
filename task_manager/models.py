@@ -5,7 +5,9 @@ from django.utils.translation import gettext_lazy as _
 
 
 class user(AbstractUser):
-    pass
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
 
 
 class status(models.Model):
