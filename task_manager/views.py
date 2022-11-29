@@ -108,6 +108,7 @@ class UserDeleteView(SuccessMessageMixin, DeleteView):
         except models.ProtectedError:
             get_error_delete_message(self.request)
             return HttpResponseRedirect(success_url)
+        messages.success(self.request, self.success_message)
         return HttpResponseRedirect(success_url)
 
 
