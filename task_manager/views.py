@@ -125,7 +125,7 @@ class StatusUpdateView(SuccessMessageMixin, UpdateView):
     fields = ['name', ]
     extra_context = {'title': _('status')}
     success_url = reverse_lazy('statuses_list')
-    success_message = 'Status was updated successfully'
+    success_message =_('Status was updated successfully')
 
 
 class StatusDeleteView(SuccessMessageMixin, DeleteView):
@@ -133,7 +133,7 @@ class StatusDeleteView(SuccessMessageMixin, DeleteView):
     template_name = 'delete_form.html'
     extra_context = {'title': _('status')}
     success_url = reverse_lazy('statuses_list')
-    success_message = 'Status was deleted successfully'
+    success_message =_('Status was deleted successfully')
 
     def form_valid(self, form):
         success_url = self.get_success_url()

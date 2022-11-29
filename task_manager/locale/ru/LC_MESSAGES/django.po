@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-29 10:38+0300\n"
+"POT-Creation-Date: 2022-11-29 10:50+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -220,6 +220,14 @@ msgstr "Статус успешно создан"
 #: task_manager/views.py:126 task_manager/views.py:134
 msgid "status"
 msgstr "статус"
+
+#: task_manager/views.py:128
+msgid "Status was updated successfully"
+msgstr "Статус успешно изменён"
+
+#: task_manager/views.py:136
+msgid "Status was deleted successfully"
+msgstr "Статус успешно удалён"
 
 #: task_manager/views.py:153
 msgid "Task was created successfully"
