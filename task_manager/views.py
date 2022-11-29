@@ -89,7 +89,7 @@ class UserUpdateView(SuccessMessageMixin, UpdateView):
     template_name = 'update_form.html'
     success_url = reverse_lazy('users_list')
     extra_context = {
-        'password_form': PasswordChangeForm(user),
+        'password_form': PasswordUpdateForm(user),
         'user_update': True,
     }
     success_message = _('Your account has been successfully updated.')
