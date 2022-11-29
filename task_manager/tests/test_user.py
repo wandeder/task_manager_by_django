@@ -12,35 +12,31 @@ class CRUD_Users_Test(TestCase):
 
     def test_create_user(self):
         # Issue a POST request, create new user.
-        response = Client().post(
-                reverse_lazy('user_create'),
-                {'username': 'john_smith', 'password': '12345'},
-                follow=True,
-        )
+        response = Client().post(reverse_lazy('user_create'),
+                                 {'username': 'john_smith',
+                                  'password': '12345'},
+                                 follow=True)
         # Check that the response is 200 OK.
         self.assertEqual(response.status_code, 200)
         # Check that redirect url is rigth.
         # self.assertRedirects(response, reverse_lazy('user_create_done'))
 
     def test_read_user(self):
-        response = self.client.post(
-                reverse('login'),
-                {'username': 'ivan_ivanov', 'password': 'qwerty'},
-                follow=True,
-        )
+        response = self.client.post(reverse('login'),
+                                    {'username': 'ivan_ivanov',
+                                     'password': 'qwerty'},
+                                    follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'home.html')
         self.assertRedirects(response, reverse('home'))
 
     def test_update_user(self):
         self.client.login(username='ivan_ivanov', password='qwerty')
-        response = self.client.post(
-                reverse('user_update', kwargs={'pk': self.user.pk}),
-                {'first_name': 'Ivan',
-                 'last_name': 'Ivanov',
-                 'email': 'ivanivanov@gmail.com'
-                 },
-        )
+        response = self.client.post(reverse('user_update',
+                                            kwargs={'pk': self.user.pk}),
+                                    {'first_name': 'Ivan',
+                                     'last_name': 'Ivanov',
+                                     'email': 'ivanivanov@gmail.com'})
         self.assertEqual(response.status_code, 200)
         # print(response.context)
         # self.assertEqual(User.objects.get(id=1).first_name, 'Ivan')
@@ -49,8 +45,7 @@ class CRUD_Users_Test(TestCase):
 
     def test_delete_user(self):
         self.client.login(username='ivan_ivanov', password='qwerty')
-        response = self.client.post(
-                reverse('user_delete', kwargs={'pk': self.user.pk}),
-        )
+        response = self.client.post(reverse('user_delete',
+                                            kwargs={'pk': self.user.pk}))
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('users_list'))

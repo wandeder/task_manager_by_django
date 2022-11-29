@@ -27,26 +27,20 @@ class StatusCreationForm(ModelForm):
 class TaskCreationForm(ModelForm):
     model = task
     button = _('Create')
-    description = CharField(
-            max_length=700,
-            widget=Textarea(),
-            required=False,
-            label=_('Description'),
-    )
-    executor = ModelChoiceField(
-            queryset=user.objects.all(),
-            required=False,
-            label=_('Executor'),
-    )
-    labels = ModelMultipleChoiceField(
-            queryset=label.objects.all(),
-            required=False,
-            label=_('Labels'),
-    )
+    description = CharField(max_length=700,
+                            widget=Textarea(),
+                            required=False,
+                            label=_('Description'))
+    executor = ModelChoiceField(queryset=user.objects.all(),
+                                required=False,
+                                label=_('Executor'))
+    labels = ModelMultipleChoiceField(queryset=label.objects.all(),
+                                      required=False,
+                                      label=_('Labels'))
 
     class Meta:
         model = task
-        fields = ('name', 'description', 'status', 'executor', 'labels',)
+        fields = ('name', 'description', 'status', 'executor', 'labels')
 
 
 class LabelCreationForm(ModelForm):
@@ -66,10 +60,8 @@ class UserUpdateForm(UserChangeForm):
 class PasswordUpdateForm(PasswordChangeForm):
 
     password1 = CharField(label=_("Password"), widget=PasswordInput)
-    password2 = CharField(
-            label=_("Password confirmation"),
-            widget=PasswordInput,
-    )
+    password2 = CharField(label=_("Password confirmation"),
+                          widget=PasswordInput)
 
     class Meta:
         model = user
