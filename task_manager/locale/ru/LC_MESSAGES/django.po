@@ -183,31 +183,31 @@ msgstr "Имя пользователя"
 
 #: task_manager/views.py:21
 msgid "Can not delete, because this is used"
-msgstr "Нельзя удалить, потому что это используется."
+msgstr "Нельзя удалить, потому что это используется"
 
 #: task_manager/views.py:32
 msgid "You are log in."
-msgstr "Вы залогинены."
+msgstr "Вы залогинены"
 
 #: task_manager/views.py:42
 msgid "You are log out."
-msgstr "Вы разлогинены."
+msgstr "Вы разлогинены"
 
 #: task_manager/views.py:83
-msgid "Your account has been successfully created."
+msgid "Your account has been successfully created"
 msgstr "Пользователь успешно зарегистрирован"
 
 #: task_manager/views.py:95
-msgid "Your account has been successfully updated."
-msgstr "Пользователь успешно изменён."
+msgid "Your account has been successfully updated"
+msgstr "Пользователь успешно изменён"
 
 #: task_manager/views.py:102
-msgid "Your account has been successfully deleted."
-msgstr "Пользователь успешно удален."
+msgid "Your account has been successfully deleted"
+msgstr "Пользователь успешно удален"
 
 #: task_manager/views.py:118
 msgid "Status was created successfully."
-msgstr "Статус создан."
+msgstr "Статус создан"
 
 #: task_manager/views.py:125 task_manager/views.py:133
 msgid "status"
@@ -215,7 +215,7 @@ msgstr "статус"
 
 #: task_manager/views.py:152
 msgid "Task was created successfully."
-msgstr "Задача создана."
+msgstr "Задача создана"
 
 #: task_manager/views.py:168 task_manager/views.py:177
 msgid "task"
