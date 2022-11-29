@@ -62,12 +62,10 @@
             {% endif %}
         </div>
     </nav>
-    {% if messages %}
-        <div class="container wrapper flex-grow-1">
-            {% bootstrap_messages %}
-        </div>
-    {% endif %}
 <div class="container wrapper flex-grow-1">
+    {% if messages %}
+        {% bootstrap_messages %}
+    {% endif %}
     {% block content %}
     {% endblock %}
 </div>
