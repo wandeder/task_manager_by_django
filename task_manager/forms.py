@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from task_manager.models import user, status, task, label
-from django.forms import ModelForm, Textarea, ModelChoiceField, CharField, PasswordInput, ValidationError, Select
+from django.forms import ModelForm, Textarea, ModelChoiceField, CharField, PasswordInput, ValidationError, Select, ModelMultipleChoiceField
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.forms import PasswordChangeForm, SetPasswordForm
 from collections import OrderedDict
@@ -23,7 +23,12 @@ class StatusCreationForm(ModelForm):
 
 
 class TaskCreationForm(ModelForm):
+    model = task
     button = _('Create')
+    description = CharField(max_length=700, widget=Textarea(), required=False)
+    executor = ModelChoiceField(queryset=user.objects.all(), required=False)
+    labels = ModelMultipleChoiceField(queryset=label.objects.all(), required=False)
+
     class Meta:
         model = task
         fields = ('name', 'description', 'status', 'executor', 'labels',)

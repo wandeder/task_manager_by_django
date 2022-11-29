@@ -31,7 +31,7 @@ class task(models.Model):
     description = models.TextField(max_length=700, verbose_name=_('Description'))
     status = models.ForeignKey(status, on_delete=models.PROTECT, verbose_name=_('Status'))
     creator = models.ForeignKey(get_user_model(), on_delete=models.PROTECT, related_name='creator')
-    executor = models.ForeignKey(user, on_delete=models.PROTECT, verbose_name=_('Executor'))
+    executor = models.ForeignKey(user, on_delete=models.PROTECT, null=True, verbose_name=_('Executor'))
     created_at = models.DateTimeField(auto_now_add=True)
     labels = models.ManyToManyField(label, through="labels_of_task", verbose_name=_('Labels'))
 
