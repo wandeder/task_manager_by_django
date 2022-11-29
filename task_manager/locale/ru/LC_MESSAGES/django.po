@@ -84,11 +84,11 @@ msgstr "Вы уверенны что хотите удалить это"
 
 #: task_manager/templates/delete_form.html:8
 msgid "Not, I'm not sure"
-msgstr "Нет, я не уверен"
+msgstr "Нет, не удалять"
 
 #: task_manager/templates/delete_form.html:9
 msgid "Yes, I'm sure"
-msgstr "Да, я уверен"
+msgstr "Да, удалить"
 
 #: task_manager/templates/labels_list.html:6
 msgid "Labels list"
