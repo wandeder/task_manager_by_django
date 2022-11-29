@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-29 10:20+0300\n"
+"POT-Creation-Date: 2022-11-29 10:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,6 +37,32 @@ msgstr "Пароль"
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
+#: task_manager/models.py:12 task_manager/models.py:20
+#: task_manager/models.py:28 task_manager/templates/labels_list.html:9
+#: task_manager/templates/statuses_list.html:9
+#: task_manager/templates/tasks_list.html:11
+msgid "Name"
+msgstr "Имя"
+
+#: task_manager/models.py:29
+msgid "Description"
+msgstr ""
+
+#: task_manager/models.py:30 task_manager/templates/task.html:9
+#: task_manager/templates/tasks_list.html:12
+msgid "Status"
+msgstr "Статус"
+
+#: task_manager/models.py:32 task_manager/templates/task.html:8
+#: task_manager/templates/tasks_list.html:14
+msgid "Executor"
+msgstr "Исполнитель"
+
+#: task_manager/models.py:34 task_manager/templates/base.html:17
+#: task_manager/templates/task.html:11
+msgid "Labels"
+msgstr "Метки"
+
 #: task_manager/templates/base.html:10
 msgid "Enter"
 msgstr "Вход"
@@ -64,10 +90,6 @@ msgstr "Статусы"
 #: task_manager/templates/base.html:16
 msgid "Tasks"
 msgstr "Задачи"
-
-#: task_manager/templates/base.html:17 task_manager/templates/task.html:11
-msgid "Labels"
-msgstr "Метки"
 
 #: task_manager/templates/delete_form.html:6
 #: task_manager/templates/labels_list.html:12
@@ -105,12 +127,6 @@ msgstr "Создать метку"
 msgid "ID"
 msgstr "ID"
 
-#: task_manager/templates/labels_list.html:9
-#: task_manager/templates/statuses_list.html:9
-#: task_manager/templates/tasks_list.html:11
-msgid "Name"
-msgstr "Имя"
-
 #: task_manager/templates/labels_list.html:10
 #: task_manager/templates/statuses_list.html:10
 #: task_manager/templates/task.html:10
@@ -147,14 +163,6 @@ msgstr "Задача"
 #: task_manager/templates/task.html:7 task_manager/templates/tasks_list.html:13
 msgid "Author"
 msgstr "Автор"
-
-#: task_manager/templates/task.html:8 task_manager/templates/tasks_list.html:14
-msgid "Executor"
-msgstr "Исполнитель"
-
-#: task_manager/templates/task.html:9 task_manager/templates/tasks_list.html:12
-msgid "Status"
-msgstr "Статус"
 
 #: task_manager/templates/tasks_list.html:7
 msgid "Tasks list"
