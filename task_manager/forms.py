@@ -47,8 +47,8 @@ class UserUpdateForm(UserChangeForm):
 
 class PasswordUpdateForm(PasswordChangeForm):
 
-    password1 = CharField(label=_("New password"), widget=PasswordInput)
-    password2 = CharField(label=_("New password confirmation"), widget=PasswordInput)
+    password1 = CharField(label=_("Password"), widget=PasswordInput)
+    password2 = CharField(label=_("Password confirmation"), widget=PasswordInput)
 
     class Meta:
         model = user
