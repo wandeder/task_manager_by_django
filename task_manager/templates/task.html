@@ -3,7 +3,7 @@
 
 {% block content %}
 
-{% translate "Task" as task %}
+{% translate "Task" as title %}
 {% translate "Author" as creator %}
 {% translate "Executor" as executor %}
 {% translate "Status" as status %}
@@ -13,7 +13,7 @@
 {% translate "Delete" as delete %}
 
 <div class="container wrapper flex-grow-1">
-    <h3 class="my-4">{{ task }}:</h3>
+    <h3 class="my-4">{{ title }}:</h3>
     <div class="card">
         <div class="card-header bg-secondary text-white">
             <h2>{{ task.name }}</h2>
@@ -23,7 +23,7 @@
             <hr>
             <div class="container">
                 <div class="row p-1">
-                    <div class="col">{{ creator }}/div>
+                    <div class="col">{{ creator }}</div>
                     <div class="col">{{ task.creator }}</div>
                 </div>
                  <div class="row p-1">

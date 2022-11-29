@@ -30,7 +30,7 @@
         <tr>
             <td>{{ person.id }}</td>
             <td>{{ person.username }}</td>
-            <td>{{ person.first_name }} {{ person.last_name }}</td>
+            <td>{{ person }}</td>
             <td>{{ person.date_joined }}</td>
             {% if user.is_authenticated and user.username == person.username %}
                 <td>

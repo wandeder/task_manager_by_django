@@ -1,4 +1,4 @@
-from django_filters import FilterSet, BooleanFilter
+from django_filters import FilterSet
 from task_manager.models import task
 
 
@@ -12,7 +12,6 @@ class TaskFilter(FilterSet):
     def qs(self):
         parent = super().qs
         if self.request.GET.get('self_tasks'):
-            # print(self.request.GET)
             user = getattr(self.request, 'user')
             return parent.filter(creator=user)
         else:
