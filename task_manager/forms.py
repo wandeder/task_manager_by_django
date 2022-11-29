@@ -41,7 +41,7 @@ class LabelCreationForm(ModelForm):
 class UserUpdateForm(UserChangeForm):
     class Meta:
         model = user
-        fields = ['username', 'first_name', 'last_name', 'email' ]
+        fields = ['username', 'first_name', 'last_name', 'email', ]
 
 
 class PasswordUpdateForm(PasswordChangeForm):

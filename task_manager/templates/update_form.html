@@ -10,7 +10,9 @@
 <form action="." method="post">
     {% csrf_token %}
     {% bootstrap_form form %}
-    {% bootstrap_form password_form %}
+    {% if user_update %}
+        {% bootstrap_form password_form %}
+    {% endif %}
     <input class="btn btn-primary" type="submit" value="{{ update }}">
 </form>
 {% endblock %}
