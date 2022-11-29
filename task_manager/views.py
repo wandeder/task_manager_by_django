@@ -80,7 +80,7 @@ class UserCreateView(SuccessMessageMixin, CreateView):
     template_name = 'create_form.html'
     success_url = reverse_lazy('login')
     extra_context = {'button': _('Registrate')}
-    success_message = _('Your account has been successfully created.')
+    success_message = _('Your account has been successfully created')
 
 
 class UserUpdateView(SuccessMessageMixin, UpdateView):
@@ -92,14 +92,14 @@ class UserUpdateView(SuccessMessageMixin, UpdateView):
         'password_form': PasswordUpdateForm(user),
         'user_update': True,
     }
-    success_message = _('Your account has been successfully updated.')
+    success_message = _('Your account has been successfully updated')
 
 
 class UserDeleteView(SuccessMessageMixin, DeleteView):
     model = user
     template_name = 'delete_form.html'
     success_url = reverse_lazy('users_list')
-    success_message = _('Your account has been successfully deleted.')
+    success_message = _('Your account has been successfully deleted')
 
     def form_valid(self, form):
         success_url = self.get_success_url()
@@ -116,7 +116,7 @@ class StatusCreateView(SuccessMessageMixin, CreateView):
     form_class = StatusCreationForm
     template_name = 'create_form.html'
     success_url = reverse_lazy('statuses_list')
-    success_message = _('Status was created successfully.')
+    success_message = _('Status was created successfully')
 
 
 class StatusUpdateView(SuccessMessageMixin, UpdateView):
@@ -125,7 +125,7 @@ class StatusUpdateView(SuccessMessageMixin, UpdateView):
     fields = ['name', ]
     extra_context = {'title': _('status')}
     success_url = reverse_lazy('statuses_list')
-    success_message = 'Status was updated successfully.'
+    success_message = 'Status was updated successfully'
 
 
 class StatusDeleteView(SuccessMessageMixin, DeleteView):
@@ -133,7 +133,7 @@ class StatusDeleteView(SuccessMessageMixin, DeleteView):
     template_name = 'delete_form.html'
     extra_context = {'title': _('status')}
     success_url = reverse_lazy('statuses_list')
-    success_message = 'Status was deleted successfully.'
+    success_message = 'Status was deleted successfully'
 
     def form_valid(self, form):
         success_url = self.get_success_url()
@@ -150,7 +150,7 @@ class TaskCreateView(SuccessMessageMixin, CreateView):
     form_class = TaskCreationForm
     template_name = 'create_form.html'
     success_url = reverse_lazy('tasks_list')
-    success_message = _('Task was created successfully.')
+    success_message = _('Task was created successfully')
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
@@ -169,7 +169,7 @@ class TaskUpdateView(SuccessMessageMixin, UpdateView):
     extra_context = {'title': _('task')}
     fields = ['name', 'description', 'status', 'executor', 'labels']
     success_url = reverse_lazy('tasks_list')
-    success_message = _('Task was updated successfully.')
+    success_message = _('Task was updated successfully')
 
 
 class TaskDeleteView(SuccessMessageMixin, DeleteView):
@@ -177,14 +177,14 @@ class TaskDeleteView(SuccessMessageMixin, DeleteView):
     template_name = 'delete_form.html'
     extra_context = {'title': _('task')}
     success_url = reverse_lazy('tasks_list')
-    success_message = _('Task was deleted successfully.')
+    success_message = _('Task was deleted successfully')
 
 
 class LabelCreateView(SuccessMessageMixin, CreateView):
     form_class = LabelCreationForm
     template_name = 'create_form.html'
     success_url = reverse_lazy('labels_list')
-    success_message = _('Label was created successfully.')
+    success_message = _('Label was created successfully')
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
@@ -202,7 +202,7 @@ class LabelUpdateView(SuccessMessageMixin, UpdateView):
     fields = ['name', ]
     extra_context = {'title': _('label')}
     success_url = reverse_lazy('labels_list')
-    success_message = _('Label was updated successfully.')
+    success_message = _('Label was updated successfully')
 
 
 class LabelDeleteView(SuccessMessageMixin, DeleteView):
@@ -210,7 +210,7 @@ class LabelDeleteView(SuccessMessageMixin, DeleteView):
     template_name = 'delete_form.html'
     extra_context = {'title': _('label')}
     success_url = reverse_lazy('labels_list')
-    success_message = _('Label was deleted successfully.')
+    success_message = _('Label was deleted successfully')
 
     def form_valid(self, form):
         success_url = self.get_success_url()
