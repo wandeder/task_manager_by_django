@@ -46,7 +46,7 @@ msgstr "Имя"
 
 #: task_manager/models.py:29
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: task_manager/models.py:30 task_manager/templates/task.html:9
 #: task_manager/templates/tasks_list.html:12
@@ -215,7 +215,7 @@ msgstr "Пользователь успешно удалён"
 
 #: task_manager/views.py:119
 msgid "Status was created successfully"
-msgstr "Статус создан"
+msgstr "Статус успешно создан"
 
 #: task_manager/views.py:126 task_manager/views.py:134
 msgid "status"
@@ -223,7 +223,7 @@ msgstr "статус"
 
 #: task_manager/views.py:153
 msgid "Task was created successfully"
-msgstr "Задача создана"
+msgstr "Задача успешно создана"
 
 #: task_manager/views.py:169 task_manager/views.py:178
 msgid "task"
@@ -231,15 +231,15 @@ msgstr "задача"
 
 #: task_manager/views.py:172
 msgid "Task was updated successfully"
-msgstr "Задача создана."
+msgstr "Задача успешно обновлена"
 
 #: task_manager/views.py:180
 msgid "Task was deleted successfully"
-msgstr "Задача удалена."
+msgstr "Задача успешно удалена."
 
 #: task_manager/views.py:187
 msgid "Label was created successfully"
-msgstr "Метка создана"
+msgstr "Метка успешно создана"
 
 #: task_manager/views.py:203 task_manager/views.py:211
 msgid "label"
@@ -247,8 +247,8 @@ msgstr "метка"
 
 #: task_manager/views.py:205
 msgid "Label was updated successfully"
-msgstr "Метка обновлена"
+msgstr "Метка успешно обновлена"
 
 #: task_manager/views.py:213
 msgid "Label was deleted successfully"
-msgstr "Метка удалена"
+msgstr "Метка успешно удалена"
