@@ -25,9 +25,9 @@ class StatusCreationForm(ModelForm):
 class TaskCreationForm(ModelForm):
     model = task
     button = _('Create')
-    description = CharField(max_length=700, widget=Textarea(), required=False)
-    executor = ModelChoiceField(queryset=user.objects.all(), required=False)
-    labels = ModelMultipleChoiceField(queryset=label.objects.all(), required=False)
+    description = CharField(max_length=700, widget=Textarea(), required=False, label=_('Description'))
+    executor = ModelChoiceField(queryset=user.objects.all(), required=False, label=_('Executor'))
+    labels = ModelMultipleChoiceField(queryset=label.objects.all(), required=False, label=_('Labels'))
 
     class Meta:
         model = task

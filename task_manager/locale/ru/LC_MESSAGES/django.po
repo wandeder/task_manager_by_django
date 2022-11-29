@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-29 11:12+0300\n"
+"POT-Creation-Date: 2022-11-29 15:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,44 +24,44 @@ msgstr ""
 msgid "Registrate"
 msgstr "Зарегистрировать"
 
-#: task_manager/forms.py:18 task_manager/forms.py:26 task_manager/forms.py:35
+#: task_manager/forms.py:18 task_manager/forms.py:27 task_manager/forms.py:38
 #: task_manager/templates/create_form.html:7
 msgid "Create"
 msgstr "Создать"
 
-#: task_manager/forms.py:50
+#: task_manager/forms.py:28 task_manager/models.py:31
+msgid "Description"
+msgstr "Описание"
+
+#: task_manager/forms.py:29 task_manager/models.py:34
+#: task_manager/templates/task.html:8 task_manager/templates/tasks_list.html:14
+msgid "Executor"
+msgstr "Исполнитель"
+
+#: task_manager/forms.py:30 task_manager/models.py:36
+#: task_manager/templates/base.html:17 task_manager/templates/task.html:11
+msgid "Labels"
+msgstr "Метки"
+
+#: task_manager/forms.py:53
 msgid "Password"
 msgstr "Пароль"
 
-#: task_manager/forms.py:51
+#: task_manager/forms.py:54
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
-#: task_manager/models.py:12 task_manager/models.py:20
-#: task_manager/models.py:28 task_manager/templates/labels_list.html:9
+#: task_manager/models.py:14 task_manager/models.py:22
+#: task_manager/models.py:30 task_manager/templates/labels_list.html:9
 #: task_manager/templates/statuses_list.html:9
 #: task_manager/templates/tasks_list.html:11
 msgid "Name"
 msgstr "Имя"
 
-#: task_manager/models.py:29
-msgid "Description"
-msgstr "Описание"
-
-#: task_manager/models.py:30 task_manager/templates/task.html:9
+#: task_manager/models.py:32 task_manager/templates/task.html:9
 #: task_manager/templates/tasks_list.html:12
 msgid "Status"
 msgstr "Статус"
-
-#: task_manager/models.py:32 task_manager/templates/task.html:8
-#: task_manager/templates/tasks_list.html:14
-msgid "Executor"
-msgstr "Исполнитель"
-
-#: task_manager/models.py:34 task_manager/templates/base.html:17
-#: task_manager/templates/task.html:11
-msgid "Labels"
-msgstr "Метки"
 
 #: task_manager/templates/base.html:10
 msgid "Enter"
