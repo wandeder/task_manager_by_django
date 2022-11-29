@@ -203,7 +203,7 @@ msgstr "Пользователь успешно изменён."
 
 #: task_manager/views.py:102
 msgid "Your account has been successfully deleted."
-msgstr "Ваш аккаунт удален."
+msgstr "Пользователь успешно удален."
 
 #: task_manager/views.py:118
 msgid "Status was created successfully."
