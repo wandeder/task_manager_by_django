@@ -1,9 +1,5 @@
-### Task manager: https://task-manager33.herokuapp.com/  
-It's fourth learning project from Hexlet.io.  
-It's simple web-application for manage tasks in company or team. The application implements the registration of new users, authentication. It is possible to create new tasks, statuses and labels, assign task executors. The user can edit his account, change information and password.  
-While a user is participating in a task, their account cannot be deleted.
-As long as a status or label is assigned to a task, it cannot be deleted.  
-Language localisation on English and Russian.  
+## Task manager: https://task-manager33.herokuapp.com/
+It's fourth learning project from Hexlet.io. It's simple web-application for manage tasks in company or team. The application implements the registration of new users, authentication. It is possible to create new tasks, statuses and labels, assign task executors. The user can edit his account, change information and password. While a user is participating in a task, their account cannot be deleted. As long as a status or label is assigned to a task, it cannot be deleted.Language localisation on English and Russian.
 ---
 Framework: ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white) ![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709?style=for-the-badge&logo=django&logoColor=white&color=ff1709&labelColor=gray)  
 Design: ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)  
